@@ -10,14 +10,15 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [x] Customization for glow.
   - [x] Bunny-Hop
   - [x] Anti-Flash
-  - [x] TriggerBot.
+  - [x] TriggerBot
   - [ ] ESP
-  - [ ] Aimbot.
-  - [ ] Silent Aim.
+  - [ ] Aimbot
+  - [ ] Silent Aim
   - [ ] Skin Changer
   - [ ] Knife Changer
   - [ ] Glove Changer
-  - [ ] Remake GUI.
+  - [ ] Remake GUI
+  - [ ] Max Optimization
   - [ ] Configs
   
   # Developers
