@@ -18,6 +18,7 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [ ] Knife Changer
   - [ ] Glove Changer
   - [ ] Remake GUI.
+  - [ ] Configs
   
   # Developers
   - [KisSsArt](https://github.com/KisSsArt)
