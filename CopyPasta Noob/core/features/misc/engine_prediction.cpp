@@ -1,4 +1,4 @@
-#include "engine_prediction.hpp"
+/*#include "engine_prediction.hpp"
 
 void prediction::start(c_usercmd* cmd) {
 	if (!csgo::local_player)
@@ -36,3 +36,4 @@ void prediction::end() {
 	interfaces::globals->cur_time = old_cur_time;
 	interfaces::globals->frame_time = old_cur_time;
 }
+*/
