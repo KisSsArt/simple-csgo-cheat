@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "../../../dependencies/utilities/csgo.hpp"
 
 namespace prediction {
@@ -10,3 +10,4 @@ namespace prediction {
 	inline float old_frame_time;
 	inline int* prediction_random_seed;
 };
+*/

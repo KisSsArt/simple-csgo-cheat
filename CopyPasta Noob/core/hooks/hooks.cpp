@@ -1,7 +1,7 @@
 #pragma once
-#include "../../dependencies/utilities/csgo.hpp"
+//#include "../../dependencies/utilities/csgo.hpp"
 #include "../features/features.hpp"
-#include "../features/misc/engine_prediction.hpp"
+//#include "../features/misc/engine_prediction.hpp"
 #include "../menu/menu.hpp"
 
 hooks::create_move::fn create_move_original = nullptr;
@@ -42,58 +42,54 @@ void hooks::release() {
 }
 
 bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_frametime, c_usercmd* cmd) {
-	create_move_original(input_sample_frametime, cmd);
+	//create_move_original(input_sample_frametime, cmd);
 
-	if (!cmd || !cmd->command_number)
-		return create_move_original(input_sample_frametime, cmd);
+	//if (!cmd || !cmd->command_number)
+	//	return create_move_original(input_sample_frametime, cmd);
 
-	csgo::local_player = reinterpret_cast<player_t*>(interfaces::entity_list->get_client_entity(interfaces::engine->get_local_player()));
+	//csgo::local_player = reinterpret_cast<player_t*>(interfaces::entity_list->get_client_entity(interfaces::engine->get_local_player()));
 
-	uintptr_t* frame_pointer;
-	__asm mov frame_pointer, ebp;
-	bool& send_packet = *reinterpret_cast<bool*>(*frame_pointer - 0x1C);
+	//uintptr_t* frame_pointer;
+	//__asm mov frame_pointer, ebp;
+	//bool& send_packet = *reinterpret_cast<bool*>(*frame_pointer - 0x1C);
 
-	auto old_viewangles = cmd->viewangles;
-	auto old_forwardmove = cmd->forwardmove;
-	auto old_sidemove = cmd->sidemove;
+	//auto old_viewangles = cmd->viewangles;
+	//auto old_forwardmove = cmd->forwardmove;
+	//auto old_sidemove = cmd->sidemove;
 
 
-	//misc::movement::bunny_hop(cmd);
 	std::thread bhop(misc::movement::bunny_hop, cmd);
 	bhop.detach();
 
 
-	//visuals::wh::glow(cmd);
 	std::thread glow(visuals::wh::glow, cmd);
 	glow.detach();
 
 
-	//misc::visuals::antiflash(cmd);
 	std::thread antiflash(misc::visuals::antiflash, cmd);
 	antiflash.detach();
 
 
-	//aimbot::aim::trigger(cmd);
 	std::thread triggerBot(aimbot::aim::trigger, cmd);
 	triggerBot.detach();
 
 
-	prediction::start(cmd); {
+	//prediction::start(cmd); {
 
 
 
-	} prediction::end();
+	//} prediction::end();
 
-	math::correct_movement(old_viewangles, cmd, old_forwardmove, old_sidemove);
+	//math::correct_movement(old_viewangles, cmd, old_forwardmove, old_sidemove);
 
-	cmd->forwardmove = std::clamp(cmd->forwardmove, -450.0f, 450.0f);
-	cmd->sidemove = std::clamp(cmd->sidemove, -450.0f, 450.0f);
-	cmd->upmove = std::clamp(cmd->sidemove, -320.0f, 320.0f);
+	//cmd->forwardmove = std::clamp(cmd->forwardmove, -450.0f, 450.0f);
+	//cmd->sidemove = std::clamp(cmd->sidemove, -450.0f, 450.0f);
+	//cmd->upmove = std::clamp(cmd->sidemove, -320.0f, 320.0f);
 
-	cmd->viewangles.normalize();
-	cmd->viewangles.x = std::clamp(cmd->viewangles.x, -89.0f, 89.0f);
-	cmd->viewangles.y = std::clamp(cmd->viewangles.y, -180.0f, 180.0f);
-	cmd->viewangles.z = 0.0f;
+	//cmd->viewangles.normalize();
+	//cmd->viewangles.x = std::clamp(cmd->viewangles.x, -89.0f, 89.0f);
+	//cmd->viewangles.y = std::clamp(cmd->viewangles.y, -180.0f, 180.0f);
+	//cmd->viewangles.z = 0.0f;
 
 	return false;
 }
