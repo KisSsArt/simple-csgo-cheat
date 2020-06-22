@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+CopyPasta Noob/.vs/
+
+CopyPasta Noob/_output/
+
+CopyPasta Noob/intermediates/
