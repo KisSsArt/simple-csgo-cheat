@@ -75,9 +75,6 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 
 
 	//prediction::start(cmd); {
-
-
-
 	//} prediction::end();
 
 	//math::correct_movement(old_viewangles, cmd, old_forwardmove, old_sidemove);
@@ -100,7 +97,7 @@ void __stdcall hooks::paint_traverse::hook(unsigned int panel, bool force_repain
 	switch (panel_to_draw) {
 	case fnv::hash("MatSystemTopPanel"):
 		
-		render::draw_text_string(10, 10, render::fonts::watermark_font, variables::watermark, false, color::white(255));
+		render::draw_text_string(10, 10, render::fonts::watermark_font, variables::menu_params::watermark, false, color::white(255));
 
 		menu::toggle();
 		menu::render();
@@ -108,8 +105,8 @@ void __stdcall hooks::paint_traverse::hook(unsigned int panel, bool force_repain
 		break;
 
 	case fnv::hash("FocusOverlayPanel"):
-		interfaces::panel->set_keyboard_input_enabled(panel, variables::menu::opened);
-		interfaces::panel->set_mouse_input_enabled(panel, variables::menu::opened);
+		interfaces::panel->set_keyboard_input_enabled(panel, variables::menu_params::opened);
+		interfaces::panel->set_mouse_input_enabled(panel, variables::menu_params::opened);
 		break;
 	}
 

@@ -3,7 +3,9 @@
 #include <d3d9.h>
 
 struct color {
+
 	int a, r, g, b;
+
 	color() = default;
 	color(int r, int g, int b, int a = 255) {
 		this->r = r;

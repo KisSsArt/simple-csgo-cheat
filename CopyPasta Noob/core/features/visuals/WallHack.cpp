@@ -2,6 +2,7 @@
 #include "../../../hazedumper.hpp"
 #include "../../../_Objects/Objects.hpp"
 
+#include <vector>
 void visuals::wh::glow(c_usercmd* cmd) {
     if (!variables::Glow_bool) {
         return;
@@ -17,31 +18,63 @@ void visuals::wh::glow(c_usercmd* cmd) {
             if (Entity(i).Team() == LocalPlayer::Team())
             {
                 // Teammate
-                if (variables::TeamGlow_bool) {
-                    if (variables::GlowHealth_Team) { // Health based
-                        Entity(i).GlowObject((255.f - Entity(i).Health() * 2.55f) / 255.f, (Entity(i).Health() * 2.55f) / 255.f, 0, variables::Brightness_Team, false);
+                if (variables::TeamGlow_bool)
+                {
+                    GlowObjectDefinition glowObject = Entity(i).GlowObject();
+
+                    if (variables::GlowHealth_Team) 
+                    { // Health based
+                        glowObject.r = (255.f - Entity(i).Health() * 2.55f) / 255.f;
+                        glowObject.g = (Entity(i).Health() * 2.55f) / 255.f;
+                        glowObject.b = 0.f;
                     }
-                    else
+                    else 
                     {
-                        Entity(i).GlowObject(variables::TeamColorR / 255.f, variables::TeamColorG / 255.f, variables::TeamColorB / 255.f, variables::Brightness_Team, false);
+                        glowObject.r = variables::TeamColorR / 255.f;
+                        glowObject.g = variables::TeamColorG / 255.f;
+                        glowObject.b = variables::TeamColorB / 255.f;
                     }
+
+                    glowObject.m_flGlowAlpha = variables::Brightness_Team;
+
+                    glowObject.m_bFullBloomRender = variables::FullBloomTeam;
+                    glowObject.m_nGlowStyle = variables::GlowOnly_Team ? 1 : 0;
+                    glowObject.m_bRenderWhenOccluded = true;
+                    glowObject.m_bRenderWhenUnoccluded = false;
+
+                    Entity(i).GlowObject(glowObject);
                 }
             }
             else
             {
                 // Enemy
-                if (variables::EnemyGlow_bool) {
-                    if (variables::GlowHealth_Enemy) { // Health based
-                        Entity(i).GlowObject((255.f - Entity(i).Health() * 2.55f) / 255.f, (Entity(i).Health() * 2.55f) / 255.f, 0, variables::Brightness_Enemy, false);
+                if (variables::EnemyGlow_bool) 
+                {
+                    GlowObjectDefinition glowObject = Entity(i).GlowObject();
+
+                    if (variables::GlowHealth_Enemy) 
+                    { // Health based
+                        glowObject.r = (255.f - Entity(i).Health() * 2.55f) / 255.f;
+                        glowObject.g = (Entity(i).Health() * 2.55f) / 255.f;
+                        glowObject.b = 0.f;
                     }
-                    else
+                    else 
                     {
-                        Entity(i).GlowObject(variables::EnemyColorR / 255.f, variables::EnemyColorG / 255.f, variables::EnemyColorB / 255.f, variables::Brightness_Enemy, false);
+                        glowObject.r = variables::EnemyColorR / 255.f;
+                        glowObject.g = variables::EnemyColorG / 255.f;
+                        glowObject.b = variables::EnemyColorB / 255.f;
                     }
+
+                    glowObject.m_flGlowAlpha = variables::Brightness_Enemy;
+
+                    glowObject.m_bFullBloomRender = variables::FullBloomEnemy;
+                    glowObject.m_nGlowStyle = variables::GlowOnly_Enemy ? 1 : 0;
+                    glowObject.m_bRenderWhenOccluded = true;
+                    glowObject.m_bRenderWhenUnoccluded = false;
+
+                    Entity(i).GlowObject(glowObject);
                 }
             }
-            Entity(i).RenderWhenOccluded(true);
-            Entity(i).RenderWhenUnoccluded(false);
         }
     }
 };
