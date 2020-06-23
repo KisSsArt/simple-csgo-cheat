@@ -30,9 +30,10 @@ void menu::render() {
 	
 	group_box(5, 35, 100, menu_params::height - 40, watermark_font, "tabs", false); {
 		tab(5, (260 / 2) - 35, 100, 30, group_label_font, "Aimbot", menu::current_tab, 0, false);
-		tab(5, (260 / 2), 100, 30, group_label_font, "Visuals", menu::current_tab, 1, false);
-		tab(5, (260 / 2) + 35, 100, 30, group_label_font, "Misc", menu::current_tab, 2, false);
-		//tab(5, (260 / 2) + 70, 100, 30, test_font, "Test", menu::current_tab, 3, false);
+		tab(5, (260 / 2), 100, 30, group_label_font, "Glow", menu::current_tab, 1, false);
+		tab(5, (260 / 2) + 35, 100, 30, group_label_font, "ESP", menu::current_tab, 2, false);
+		tab(5, (260 / 2) + 70, 100, 30, group_label_font, "Misc", menu::current_tab, 3, false);
+		//tab(5, (260 / 2) + 70, 100, 30, test_font, "Test", menu::current_tab, 4, false);
 	}
 
 	switch (current_tab) {
@@ -43,7 +44,7 @@ void menu::render() {
 		}
 		break;
 	case 1: // Visuals
-		group_box(110, 35, 685, menu_params::height - 40, watermark_font, "Visuals", false); {
+		group_box(110, 35, 685, menu_params::height - 40, watermark_font, "Glow", false); {
 			check_box(120, 45, 310, watermark_font, "Glow", Glow_bool);
 
 			/////////////////////////TEAM
@@ -77,14 +78,19 @@ void menu::render() {
 			}
 		}
 		break;
-	case 2: // Misc
+	case 2: // ESP
+		group_box(110, 35, 685, menu_params::height - 40, watermark_font, "ESP", false); {
+			check_box(150, 45, 310, watermark_font, "ESP", ESP_bool);
+		}
+		break;
+	case 3: // Misc
 		group_box(110, 35, 685, menu_params::height - 40, watermark_font, "Misc", false); {
 			check_box(120, 45, 310, watermark_font, "BunnyHop", bunnyhop_bool);
 			check_box(120, 60, 310, watermark_font, "AntiFlash", antiflash_bool);
 		}
 		break;
 
-	/*case 3: // Test
+	/*case 4: // Test
 		group_box(110, 35, 685, menu::h - 40, watermark_font, "TEST", false); {
 			check_box(120, 45, 310, watermark_font, "Test Bool", test_bool);
 			slider(120, 60, 310, 125, watermark_font, "Test Slider", test_float, 0.f, 100.f);

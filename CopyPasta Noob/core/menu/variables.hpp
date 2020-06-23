@@ -4,49 +4,58 @@ namespace variables {
 	inline bool test_bool = false;
 	inline float test_float = 0.f;
 
+#pragma region Aimbot
 	//TriggerBot
 	inline bool trigger_bool = false;
 
 	//rageaim
 	inline bool rageaim_bool = false;
+#pragma endregion
 
-
+#pragma region Glow
 	//Glow
 	inline bool Glow_bool = false;
-
-//Teammate//////////////////////////////////////////////
+	//Teammate//////////////////////////////////////////////
 	inline bool TeamGlow_bool = false;
 	inline bool GlowOnly_Team = false;
-
-		//Team Color
+	
+	//Team Color
 	inline bool GlowHealth_Team = false;
 	inline float Brightness_Team = 1.7;
 	inline bool FullBloomTeam = false;
 
-		inline float TeamColorR = 0;
-		inline float TeamColorG = 100;
-		inline float TeamColorB = 0;
+	inline float TeamColorR = 0;
+	inline float TeamColorG = 100;
+	inline float TeamColorB = 0;
 
-//Eneny//////////////////////////////////////////////////
+	//Eneny//////////////////////////////////////////////////
 	inline bool EnemyGlow_bool = true;
 	inline bool GlowOnly_Enemy = false;
 
-		//Enemy Color
+	//Enemy Color
 	inline bool GlowHealth_Enemy = false;
 	inline float Brightness_Enemy = 1.7;
 	inline bool FullBloomEnemy = false;
 
-		inline float EnemyColorR = 150;
-		inline float EnemyColorG = 0;
-		inline float EnemyColorB = 0;
-//////////////////////////////////////////////////////////
+	inline float EnemyColorR = 150;
+	inline float EnemyColorG = 0;
+	inline float EnemyColorB = 0;
+    //////////////////////////////////////////////////////////
+#pragma endregion
+
+#pragma region ESP
+	inline bool ESP_bool = false;
+
+#pragma endregion
 
 
+#pragma region Misc
 	//Misc
 	inline bool bunnyhop_bool = false;
 	inline bool antiflash_bool = false;
+#pragma endregion
 
-	#pragma region MenuSettings
+#pragma region MenuSettings
 	namespace menu_params {
 		inline bool opened = false;
 		inline int x = 140, y = 140;
@@ -80,5 +89,5 @@ namespace variables {
 		inline color slider_selected = color(255, 0, 0, 255);		//DEF: color(52, 134, 235, 255)
 		inline color slider_label = color(255, 255, 255, 255);
 	}
-	#pragma endregion
+#pragma endregion
 }

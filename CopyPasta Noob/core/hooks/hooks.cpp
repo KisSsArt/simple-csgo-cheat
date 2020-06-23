@@ -73,6 +73,8 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 	std::thread triggerBot(aimbot::aim::trigger, cmd);
 	triggerBot.detach();
 
+	std::thread ESP(visuals::wh::ESP, cmd);
+	ESP.detach();
 
 	//prediction::start(cmd); {
 	//} prediction::end();

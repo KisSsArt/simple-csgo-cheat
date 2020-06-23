@@ -43,4 +43,16 @@ public:
     {
         return Memory::Read<int>(Base() + m_iGlowIndex);
     }
+
+    Vec3 Location() {
+        return Memory::Read<Vec3>(Base() + m_vecOrigin);
+	}
+
+    int BoneMatrix() {
+        return Memory::Read<int>(Base() + m_dwBoneMatrix);
+	}
+
+    Vec3 BonePos(Hitbox BoneID) {
+        return { Memory::Read<float>(BoneMatrix() + 0x30 * BoneID + 0x0C), Memory::Read<float>(BoneMatrix() + 0x30 * BoneID + 0x1C), Memory::Read<float>(BoneMatrix() + 0x30 * BoneID + 0x2C) }; //9
+	}
 };

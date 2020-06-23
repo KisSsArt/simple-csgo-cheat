@@ -90,6 +90,7 @@
     <ClCompile Include="core\features\aimbot\TriggerBot.cpp" />
     <ClCompile Include="core\features\misc\engine_prediction.cpp" />
     <ClCompile Include="core\features\misc\misc.cpp" />
+    <ClCompile Include="core\features\visuals\ESP.cpp" />
     <ClCompile Include="core\features\visuals\WallHack.cpp" />
     <ClCompile Include="core\hooks\hooks.cpp" />
     <ClCompile Include="core\menu\framework.cpp" />

@@ -13,6 +13,7 @@ namespace misc {
 namespace visuals {
 	namespace wh {
 		void glow(c_usercmd* cmd);
+		void ESP(c_usercmd* cmd);
 	};
 }
 

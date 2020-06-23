@@ -21,7 +21,7 @@ DownloadHazedumper::DownloadHazedumper() {
     
     //std::cout << "[" << __FUNCTION__ << "] - Downloading \"hazedumper/master/csgo.json\", please wait." << '\n';
     //std::cout << "[HazedumperUpdater] - Downloading \"hazedumper/master/csgo.json\", please wait." << '\n';
-    std::cout << "[HazedumperUpdater] - Updating, please wait." << '\n';
+    std::cout << "[HazedumperUpdater] - Updating, please wait." << "\n";
 
     auto location = std::filesystem::current_path().string();
 
@@ -40,7 +40,7 @@ DownloadHazedumper::DownloadHazedumper() {
         ExitProcess(EXIT_FAILURE);
     }
 
-    std::cout << "[HazedumperUpdater] - Successfully Updated!" << "\n\n";
+    std::cout << "[HazedumperUpdater] - Successfully Downloaded!" << "\n";
 
     std::ifstream fin;
     fin.open(location, std::ios_base::in);
@@ -202,4 +202,5 @@ DownloadHazedumper::DownloadHazedumper() {
     }
 
     fin.close();
+    std::cout << "[HazedumperUpdater] - Successfully Updated!" << "\n\n";
 }
