@@ -6,12 +6,12 @@ using namespace variables;
 
 //todo auto elements positioning
 
-//
+//fix bugs
 //   **
 //  ****
-//	|  |
-//	|  |
-//	|  |
+//  |  |
+//  |  |
+//  |  |
 // ( )( )
 
 auto do_frame = [&](std::int32_t x, std::int32_t y, std::int32_t width, std::int32_t height, color background, color header_text, color header_line, const std::string& name) {
