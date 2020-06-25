@@ -1,0 +1,4 @@
+class hazeUpdater {
+public:
+    hazeUpdater();
+};
