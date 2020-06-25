@@ -23,8 +23,7 @@ hazeUpdater::hazeUpdater() {
     std::cout << "[HazedumperUpdater] - Downloading \"https://github.com/MrSoczekXD/hazedumper/blob/master/csgo.json\", please wait." << '\n';
     //std::cout << "[HazedumperUpdater] - Updating, please wait." << "\n";
 
-    //auto location = std::filesystem::current_path().string();
-    std::string location = "";
+    auto location = std::filesystem::current_path().string();
 
     location += "\\";
 
@@ -56,7 +55,7 @@ hazeUpdater::hazeUpdater() {
     //(\w+) = j\["(\w+)"\]\["(\w+)"\].get<int>\(\);
     //if \(j["\2"]["\3"].is_number\(\) == 1\) { \n            \1 = j["\2"]["\3"].get<int>\(\); \n        } else { \n            std::cout << "\1: not found" << std::endl; \n        }\n
 
-    /*nlohmann::json j = nlohmann::json::parse(jsonf);
+    nlohmann::json j = nlohmann::json::parse(jsonf);
     {
         hazedumper::timestamp = j["timestamp"].get<int>();
         //Netvars
@@ -1055,7 +1054,7 @@ hazeUpdater::hazeUpdater() {
         else {
             std::cout << "set_abs_origin: not found" << std::endl;
         }
-    }*/
+    }
 
     fin.close();
     std::cout << "[HazedumperUpdater] - Successfully Updated!" << "\n\n";

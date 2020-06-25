@@ -1,6 +1,5 @@
 #include "GlowObject.hpp"
 
-
 struct Vec2
 {
     float x, y;

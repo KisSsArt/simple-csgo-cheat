@@ -1,6 +1,6 @@
 //#include "../Memory.hpp"
-#include "../Objects/Objects.hpp"
-#include "../Objects/Structs/Structs.hpp"
+//#include "../Objects/Objects.hpp"
+//#include "../Objects/Structs/Structs.hpp"
 
 //#include "Config.h"
 //#include "SDK/Engine.h"

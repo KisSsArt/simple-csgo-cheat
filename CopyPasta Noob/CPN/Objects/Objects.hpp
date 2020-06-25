@@ -5,5 +5,6 @@
 #include "Engine.hpp"
 #include "Entity.hpp"
 #include "LocalPlayer.hpp"
+#include "Structs/Structs.hpp"
 
 //static EntityList *entityList = new EntityList();

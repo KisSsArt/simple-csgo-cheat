@@ -1,6 +1,8 @@
 //#include "core/features/features.hpp"
-#include "hazedumper.hpp"
+#include <windows.h>
+//#include <fcntl.h>
 #include <libloaderapi.h>
+#include "hazedumper.hpp"
 
 using namespace hazedumper::signatures;
 using namespace hazedumper::netvars;
