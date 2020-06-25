@@ -18,8 +18,8 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [ ] Skin Changer
   - [ ] Knife Changer
   - [ ] Glove Changer
-  - [x] Remake GUI
-  - [x] Max Optimization
+  - [x] Remake GUI (almost)
+  - [x] Max Optimization (maybe)
   - [ ] Configs
   
   # Developers
