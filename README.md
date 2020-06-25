@@ -1,6 +1,5 @@
 # CopyPastaNoob's
 CopyPastaNoobs's is a CSGO Cheat that is written in C++. 
-Based on [alphauc SDK](https://github.com/alphauc/sdk). (no longer)
 
 # Download
 Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases page and download it.
