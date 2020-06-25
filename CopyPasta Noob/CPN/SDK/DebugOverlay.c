@@ -1,5 +1,5 @@
 #include "DebugOverlay.h"
-#include "../Interfaces.h"
+#include "../Base/Interfaces/Interfaces.h"
 #include "Utils.h"
 
 BOOL DebugOverlay_screenPosition(CONST struct Vector* point, struct Vector* screen)

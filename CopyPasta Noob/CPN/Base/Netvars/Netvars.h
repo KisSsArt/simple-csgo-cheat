@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Windows.h>
-#include "SDK/Utils.h"
+#include "../../SDK/Utils.h"
 
 SIZE_T Netvars_getOffset(UINT);
 

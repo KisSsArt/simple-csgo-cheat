@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 #include "Netvars.h"
-#include "SDK/Client.h"
-#include "SDK/ClientClass.h"
-#include "SDK/Recv.h"
-#include "SDK/Utils.h"
+#include "../../SDK/Client.h"
+#include "../../SDK/ClientClass.h"
+#include "../../SDK/Recv.h"
+#include "../../SDK/Utils.h"
 
 typedef struct Offset {
     UINT nameHash;

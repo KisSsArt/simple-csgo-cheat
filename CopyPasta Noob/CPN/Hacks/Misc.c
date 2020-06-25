@@ -1,5 +1,5 @@
-#include "../Config.h"
-#include "Misc.h"
+#include "../Base/Config/Config.h"
+#include "Misc.hpp"
 #include "../SDK/Engine.h"
 #include "../SDK/Entity.h"
 #include "../SDK/EntityList.h"

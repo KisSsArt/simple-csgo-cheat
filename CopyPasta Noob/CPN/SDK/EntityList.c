@@ -1,5 +1,5 @@
 #include "EntityList.h"
-#include "../Interfaces.h"
+#include "../Base/Interfaces/Interfaces.h"
 #include "Utils.h"
 
 PVOID EntityList_getEntity(INT index)

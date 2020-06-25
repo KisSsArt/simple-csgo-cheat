@@ -1,8 +1,12 @@
-#include "Config.h"
-#include "SDK/Engine.h"
-#include "SDK/Entity.h"
-#include "SDK/EntityList.h"
-#include "SDK/UserCmd.h"
+//#include "../Memory.hpp"
+#include "../Objects/Objects.hpp"
+#include "../Objects/Structs/Structs.hpp"
+
+//#include "Config.h"
+//#include "SDK/Engine.h"
+//#include "SDK/Entity.h"
+//#include "SDK/EntityList.h"
+//#include "SDK/UserCmd.h"
 
 /*
 #include "../features.hpp"

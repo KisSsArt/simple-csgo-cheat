@@ -1,5 +1,5 @@
 #include "EngineTrace.h"
-#include "../Interfaces.h"
+#include "../Base/Interfaces/Interfaces.h"
 
 static bool __fastcall shouldHitEntity(TraceFilter* traceFilter, PVOID _1, PVOID entity, INT _2)
 {

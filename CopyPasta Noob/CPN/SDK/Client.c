@@ -1,5 +1,5 @@
 #include "Client.h"
-#include "../Interfaces.h"
+#include "../Base/Interfaces/Interfaces.h"
 #include "Utils.h"
 
 struct ClientClass* Client_getAllClasses(VOID)

@@ -1,4 +1,4 @@
-#include "../Interfaces.h"
+#include "../Base/Interfaces/Interfaces.h"
 #include "Localize.h"
 
 PCWSTR Localize_find(PCSTR tokenName)

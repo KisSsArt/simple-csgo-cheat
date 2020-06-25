@@ -2,8 +2,8 @@
 #include <Windows.h>
 
 #include "Interfaces.h"
-#include "SDK/GameUI.h"
-#include "Config.h"
+#include "../../SDK/GameUI.h"
+#include "../Config/Config.h"
 
 Interfaces interfaces;
 

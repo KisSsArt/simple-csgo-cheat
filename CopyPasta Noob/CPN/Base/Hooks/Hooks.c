@@ -3,22 +3,22 @@
 #include <Windows.h>
 #include <intrin.h>
 
-#include "GUI.h"
+#include "../../GUI.h"
 //#include "Hacks/Esp.h"
 //#include "Hacks/Glow.h"
-#include "Hacks/Misc.h"
+#include "../../Hacks/Misc.hpp"
 //#include "Hacks/Triggerbot.h"
 #include "Hooks.h"
-#include "Interfaces.h"
-#include "Memory.h"
+#include "../Interfaces/Interfaces.h"
+#include "../Memory/Memory.h"
 
-#include "SDK/Engine.h"
-#include "SDK/EntityList.h"
-#include "SDK/GlobalVars.h"
-#include "SDK/Panel.h"
-#include "SDK/Surface.h"
-#include "SDK/UserCmd.h"
-#include "SDK/Utils.h"
+#include "../../SDK/Engine.h"
+#include "../../SDK/EntityList.h"
+#include "../../SDK/GlobalVars.h"
+#include "../../SDK/Panel.h"
+#include "../../SDK/Surface.h"
+#include "../../SDK/UserCmd.h"
+#include "../../SDK/Utils.h"
 
 struct Hooks hooks;
 

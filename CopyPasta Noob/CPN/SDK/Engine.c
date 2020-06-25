@@ -1,5 +1,5 @@
 #include "Engine.h"
-#include "../Interfaces.h"
+#include "../Base/Interfaces/Interfaces.h"
 #include "Utils.h"
 
 INT Engine_getLocalPlayer(VOID)

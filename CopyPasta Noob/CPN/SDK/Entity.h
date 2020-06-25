@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <Windows.h>
 
-#include "../Netvars.h"
+#include "../Base/Netvars/Netvars.h"
 
 struct ClientClass;
 struct Vector;

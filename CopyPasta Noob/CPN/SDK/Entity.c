@@ -5,7 +5,7 @@
 #include "Entity.h"
 #include "EntityList.h"
 #include "Matrix3x4.h"
-#include "../Memory.h"
+#include "../Base/Memory/Memory.h"
 #include "Utils.h"
 #include "Vector.h"
 

@@ -1,8 +1,8 @@
 #include <ShlObj.h>
 #include <Shlwapi.h>
 #include <stdio.h>
-#include "cJSON/cJSON.h"
-#include "Config.h"
+#include "../../cJSON/cJSON.h"
+#include "../Config/Config.h"
 
 struct Config config;
 

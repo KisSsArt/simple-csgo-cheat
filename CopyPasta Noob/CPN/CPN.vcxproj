@@ -95,6 +95,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <CompileAs>Default</CompileAs>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -176,25 +177,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Aimbot.cpp" />
+    <ClCompile Include="Base\Config\Config.c" />
+    <ClCompile Include="Base\Hooks\Hooks.c" />
+    <ClCompile Include="Base\Interfaces\Interfaces.c" />
+    <ClCompile Include="Hacks\Aimbot.cpp" />
     <ClCompile Include="cJSON\cJSON.c" />
-    <ClCompile Include="Config.c" />
-    <ClCompile Include="dllmain.c" />
-    <ClCompile Include="Glow.cpp" />
+    <ClCompile Include="Base\dllmain.c" />
+    <ClCompile Include="Hacks\Glow.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Hacks\Misc.c" />
-    <ClCompile Include="hazeUpdater.cpp" />
-    <ClCompile Include="Hooks.c" />
+    <ClCompile Include="hazeUpdater\hazeUpdater.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
     <ClCompile Include="imgui\imgui_impl_dx9.cpp" />
     <ClCompile Include="imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
-    <ClCompile Include="Interfaces.c" />
-    <ClCompile Include="Memory.c" />
-    <ClCompile Include="Netvars.c" />
-    <ClCompile Include="RadarHack.cpp" />
+    <ClCompile Include="Base\Memory\Memory.c" />
+    <ClCompile Include="Base\Netvars\Netvars.c" />
+    <ClCompile Include="Hacks\RadarHack.cpp" />
     <ClCompile Include="SDK\Client.c" />
     <ClCompile Include="SDK\ConVar.c" />
     <ClCompile Include="SDK\Cvar.c" />
@@ -215,16 +216,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cJSON\cJSON.h" />
-    <ClInclude Include="Client.hpp" />
-    <ClInclude Include="Config.h" />
-    <ClInclude Include="Engine.hpp" />
-    <ClInclude Include="Entity.hpp" />
-    <ClInclude Include="GlowObject.hpp" />
+    <ClInclude Include="Hacks\Misc.hpp" />
+    <ClInclude Include="Objects\Client.hpp" />
+    <ClInclude Include="Base\Config\Config.h" />
+    <ClInclude Include="Objects\Engine.hpp" />
+    <ClInclude Include="Objects\Entity.hpp" />
+    <ClInclude Include="Objects\Structs\GlowObject.hpp" />
     <ClInclude Include="GUI.h" />
-    <ClInclude Include="Hacks\Misc.h" />
     <ClInclude Include="hazedumper.hpp" />
-    <ClInclude Include="hazeUpdater.h" />
-    <ClInclude Include="Hooks.h" />
+    <ClInclude Include="hazeUpdater\hazeUpdater.h" />
+    <ClInclude Include="Base\Hooks\Hooks.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_dx9.h" />
@@ -233,13 +234,13 @@
     <ClInclude Include="imgui\imstb_rectpack.h" />
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
-    <ClInclude Include="Interfaces.h" />
-    <ClInclude Include="json.hpp" />
-    <ClInclude Include="LocalPlayer.hpp" />
-    <ClInclude Include="Memory.h" />
+    <ClInclude Include="Base\Interfaces\Interfaces.h" />
+    <ClInclude Include="hazeUpdater\json.hpp" />
+    <ClInclude Include="Objects\LocalPlayer.hpp" />
+    <ClInclude Include="Base\Memory\Memory.h" />
     <ClInclude Include="Memory.hpp" />
-    <ClInclude Include="Netvars.h" />
-    <ClInclude Include="Objects.hpp" />
+    <ClInclude Include="Base\Netvars\Netvars.h" />
+    <ClInclude Include="Objects\Objects.hpp" />
     <ClInclude Include="SDK\ClassId.h" />
     <ClInclude Include="SDK\Client.h" />
     <ClInclude Include="SDK\ClientClass.h" />
@@ -264,8 +265,8 @@
     <ClInclude Include="SDK\UtlVector.h" />
     <ClInclude Include="SDK\Vector.h" />
     <ClInclude Include="SDK\WeaponData.h" />
-    <ClInclude Include="Structs.hpp" />
-    <ClInclude Include="vector.h" />
+    <ClInclude Include="Objects\Structs\Structs.hpp" />
+    <ClInclude Include="Base\vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

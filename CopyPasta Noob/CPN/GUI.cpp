@@ -6,9 +6,9 @@
 #include "imgui/imgui_impl_win32.h"
 #include "imgui/imgui_impl_dx9.h"
 
-#include "Config.h"
+#include "Base/Config/Config.h"
 #include "GUI.h"
-#include "Hooks.h"
+#include "Base/Hooks/Hooks.h"
 #include "imgui/imgui_internal.h"
 
 bool isGuiOpen = false;

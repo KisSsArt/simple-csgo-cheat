@@ -1,5 +1,5 @@
 #include "Cvar.h"
-#include "../Interfaces.h"
+#include "../Base/Interfaces/Interfaces.h"
 #include "Utils.h"
 
 ConVar* Cvar_findVar(PCSTR name)

@@ -1,10 +1,10 @@
 #include <Windows.h>
 
-#include "Config.h"
-#include "Hooks.h"
-#include "Interfaces.h"
+#include "../Base/Config/Config.h"
+#include "../Base/Hooks/Hooks.h"
+#include "../Base/Interfaces/Interfaces.h"
 #include "Memory.h"
-#include "Netvars.h"
+#include "../Base/Netvars/Netvars.h"
 
 BOOL APIENTRY DllMain(HMODULE hModule,
                       DWORD ul_reason_for_call,

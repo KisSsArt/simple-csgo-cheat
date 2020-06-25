@@ -1,4 +1,4 @@
-#include "../Interfaces.h"
+#include "../Base/Interfaces/Interfaces.h"
 #include "Panel.h"
 
 PCSTR Panel_getName(UINT panel)

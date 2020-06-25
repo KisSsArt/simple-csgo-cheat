@@ -1,7 +1,7 @@
 #include <stdbool.h>
 
 #include "GameUI.h"
-#include "../Interfaces.h"
+#include "../Base/Interfaces/Interfaces.h"
 #include "Utils.h"
 
 VOID GameUI_messageBox(PCSTR title, PCSTR text)

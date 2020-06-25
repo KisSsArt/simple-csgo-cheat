@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include <Psapi.h>
 
-#include "Interfaces.h"
+#include "../Interfaces/Interfaces.h"
 #include "Memory.h"
 
 Memory memory;

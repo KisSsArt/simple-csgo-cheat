@@ -1,5 +1,5 @@
 #include "GlobalVars.h"
-#include "../Memory.h"
+#include "../Base/Memory/Memory.h"
 #include "UserCmd.h"
 
 #include "../SDK/Engine.h"
