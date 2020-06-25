@@ -11,16 +11,17 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [x] Bunny-Hop
   - [x] Anti-Flash
   - [x] TriggerBot
+  - [x] RadarHack
   - [ ] ESP
   - [ ] Aimbot
   - [ ] Silent Aim
   - [ ] Skin Changer
   - [ ] Knife Changer
   - [ ] Glove Changer
-  - [ ] Remake GUI
-  - [ ] Max Optimization
+  - [x] Remake GUI
+  - [x] Max Optimization
   - [ ] Configs
   
   # Developers
-  - [KisSsArt](https://github.com/KisSsArt)
-  - [MrSoczekXD](https://github.com/MrSoczekXD)
+  - [KisSsArt](https://github.com/KisSsArt)#2362
+  - [𝓜𝓻𝓢𝓸𝓬𝔃𝓮𝓴𝓧𝓓](https://github.com/MrSoczekXD)#6746
