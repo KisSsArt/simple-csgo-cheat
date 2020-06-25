@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="SDK">
+      <UniqueIdentifier>{4af2c0a8-6194-4424-beb3-6641e5edcead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hacks">
+      <UniqueIdentifier>{0ddfdfd4-7f9b-4e31-84db-367cc4518a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{5ce6b9d5-851d-4618-a847-cd0b1de850dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cJSON">
+      <UniqueIdentifier>{2606249a-b90d-4a5a-bb2e-10081d24744d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Objects">
+      <UniqueIdentifier>{1f3ca05d-a4c8-4d44-86ac-30cda8e8b1c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Objects\Structs">
+      <UniqueIdentifier>{c2209f95-9faf-433a-80f6-1e6fc6826c77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hazeUpdater">
+      <UniqueIdentifier>{255b1c84-cf92-4e1b-8eb1-37dccb051f72}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interfaces.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\GameUI.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Engine.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\EntityList.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Hacks\Misc.c">
+      <Filter>Hacks</Filter>
+    </ClCompile>
+    <ClCompile Include="Netvars.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_dx9.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_win32.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Surface.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="cJSON\cJSON.c">
+      <Filter>cJSON</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Vector.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Entity.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\GlobalVars.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Client.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Utils.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\EngineTrace.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Cvar.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\ConVar.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\ItemDefinitionIndex.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\GlowObjectDefinition.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Panel.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\DebugOverlay.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Localize.c">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Aimbot.cpp">
+      <Filter>Hacks</Filter>
+    </ClCompile>
+    <ClCompile Include="RadarHack.cpp">
+      <Filter>Hacks</Filter>
+    </ClCompile>
+    <ClCompile Include="Glow.cpp">
+      <Filter>Hacks</Filter>
+    </ClCompile>
+    <ClCompile Include="hazeUpdater.cpp">
+      <Filter>hazeUpdater</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SDK\GameUI.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Engine.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\UserCmd.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Vector.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\EntityList.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Hacks\Misc.h">
+      <Filter>Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Netvars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_dx9.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_win32.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Surface.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Utils.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="cJSON\cJSON.h">
+      <Filter>cJSON</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\UtlVector.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\GlowObjectDefinition.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entity.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\ClientClass.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\ClassId.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\GlobalVars.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Client.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Recv.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\EngineTrace.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Cvar.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\ConVar.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\ItemDefinitionIndex.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\WeaponData.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Matrix3x4.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Panel.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\DebugOverlay.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Localize.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hazedumper.hpp" />
+    <ClInclude Include="Memory.hpp" />
+    <ClInclude Include="Structs.hpp">
+      <Filter>_Objects\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="GlowObject.hpp">
+      <Filter>_Objects\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.hpp">
+      <Filter>_Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.hpp">
+      <Filter>_Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.hpp">
+      <Filter>_Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalPlayer.hpp">
+      <Filter>_Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects.hpp">
+      <Filter>_Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="hazeUpdater.h">
+      <Filter>hazeUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>hazeUpdater</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
