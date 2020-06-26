@@ -19,4 +19,14 @@ public:
 	static void FlashAlpha(float value) {
 		Memory::Write<float>(LocalPlayerPtr() + m_flFlashMaxAlpha, value);
 	}
+
+	static bool checkLocalVal() {
+		Vec3 val = Memory::Read<Vec3>(LocalPlayerPtr() + m_vecVelocity);
+		int vel = val.x + val.y + val.z;
+
+		if (vel != 0)
+			return true;
+		else
+			return false;
+	}
 };

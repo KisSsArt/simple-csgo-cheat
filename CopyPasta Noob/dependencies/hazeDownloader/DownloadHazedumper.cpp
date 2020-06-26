@@ -20,7 +20,7 @@ using namespace hazedumper::netvars;
 DownloadHazedumper::DownloadHazedumper() {
     
     //std::cout << "[" << __FUNCTION__ << "] - Downloading \"hazedumper/master/csgo.json\", please wait." << '\n';
-    std::cout << "[HazedumperUpdater] - Downloading \"https://github.com/MrSoczekXD/hazedumper/blob/master/csgo.json\", please wait." << '\n';
+    std::cout << "[Offsets] - Downloading \"https://github.com/MrSoczekXD/hazedumper/blob/master/csgo.json\", please wait." << '\n';
     //std::cout << "[HazedumperUpdater] - Updating, please wait." << "\n";
 
     auto location = std::filesystem::current_path().string();
@@ -36,11 +36,11 @@ DownloadHazedumper::DownloadHazedumper() {
 
     HRESULT hResult = URLDownloadToFile(NULL, _T(downloadURL.c_str()), _T(location.c_str()), 0, NULL);
     if (hResult != S_OK) {
-        MessageBoxA(NULL, "[HazedumperUpdater] Error: " + GetLastError(), "Updated Failed", MB_OK | MB_ICONERROR);
+        MessageBoxA(NULL, "[Offsets] Error: " + GetLastError(), "Updated Failed", MB_OK | MB_ICONERROR);
         ExitProcess(EXIT_FAILURE);
     }
 
-    std::cout << "[HazedumperUpdater] - Successfully Downloaded!" << "\n";
+    std::cout << "[Offsets] - Successfully Downloaded!" << "\n\n";
 
     std::ifstream fin;
     fin.open(location, std::ios_base::in);

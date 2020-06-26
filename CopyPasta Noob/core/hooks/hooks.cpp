@@ -36,9 +36,14 @@ bool hooks::initialize() {
 }
 
 void hooks::release() {
-	MH_Uninitialize();
+	std::thread mhU([]() { MH_Uninitialize(); });
+	std::thread mhD([]() {MH_DisableHook(MH_ALL_HOOKS); });
 
-	MH_DisableHook(MH_ALL_HOOKS);
+    mhU.detach();
+	mhD.detach();
+
+	/*MH_Uninitialize();
+	MH_DisableHook(MH_ALL_HOOKS);*/
 }
 
 bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_frametime, c_usercmd* cmd) {
@@ -58,20 +63,13 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 	//auto old_sidemove = cmd->sidemove;
 
 
-	std::thread bhop(misc::movement::bunny_hop, cmd);
+
+	/*std::thread bhop(misc::movement::bunny_hop, cmd);
 	bhop.detach();
 
 
 	std::thread glow(visuals::wh::glow, cmd);
 	glow.detach();
-
-
-	std::thread antiflash(misc::visuals::antiflash, cmd);
-	antiflash.detach();
-
-
-	std::thread triggerBot(aimbot::aim::trigger, cmd);
-	triggerBot.detach();
 
 
 	std::thread ESP(visuals::wh::ESP, cmd);
@@ -81,12 +79,53 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 	std::thread Radar(misc::radar::radarHack, cmd);
 	Radar.detach();
 
+
+	std::thread antiflash(misc::visuals::antiflash, cmd);
+	antiflash.detach();
+
+
+	std::thread triggerBot(aimbot::aim::trigger, cmd);
+	triggerBot.detach();*/
+
+
+	std::thread glow([cmd]() 
+		{ 
+			visuals::wh::glow(cmd); 
+		});
+	glow.detach();
+
+
+	std::thread Radar([cmd]()
+		{
+			misc::radar::radarHack(cmd);
+		});
+	Radar.detach();
+
+
+	std::thread antiflash([cmd]()
+		{
+			misc::visuals::antiflash(cmd);
+		});
+	antiflash.detach();
+	
+
+	std::thread triggerBot([cmd]()
+		{
+			aimbot::aim::trigger(cmd);
+		});
+	triggerBot.detach();
+	
+
+	std::thread bhop(misc::movement::bunny_hop, cmd);
+	bhop.detach();
+
+
 	//prediction::start(cmd); {
 	//} prediction::end();
 
 	//math::correct_movement(old_viewangles, cmd, old_forwardmove, old_sidemove);
 
-	cmd->forwardmove = std::clamp(cmd->forwardmove, -450.0f, 450.0f);
+	//cmd->forwardmove = std::clamp(cmd->forwardmove, -450.0f, 450.0f);
 	//cmd->sidemove = std::clamp(cmd->sidemove, -450.0f, 450.0f);
 	//cmd->upmove = std::clamp(cmd->sidemove, -320.0f, 320.0f);
 

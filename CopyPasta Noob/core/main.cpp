@@ -2,6 +2,8 @@
 #include "features/features.hpp"
 #include "../dependencies/hazeDownloader/DownloadHazedumper.h"
 
+#include <thread>
+
 unsigned long WINAPI initialize(void* instance) {
 	while (!GetModuleHandleA("serverbrowser.dll"))
 		Sleep(200);
@@ -12,13 +14,23 @@ unsigned long WINAPI initialize(void* instance) {
 
 	try {
 		DownloadHazedumper::DownloadHazedumper();
+
+		
+		std::this_thread::sleep_for(std::chrono::milliseconds(250));
+		system("cls"); 
+
 		interfaces::initialize();
 		render::initialize();
 		hooks::initialize();
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(250));
+		system("cls");
+
+		std::cout << "[CPNCheat] - Don't Close This Window Please." << std::endl;
 	}
 
 	catch (const std::runtime_error & error) {
-		MessageBoxA(NULL, error.what(), "CopyPastaNoob's Error!", MB_OK | MB_ICONERROR);
+		MessageBoxA(NULL, error.what(), "Error!", MB_OK | MB_ICONERROR);
 		FreeLibraryAndExitThread(static_cast<HMODULE>(instance), 0);
 	}
 
@@ -48,7 +60,7 @@ std::int32_t WINAPI DllMain(const HMODULE instance [[maybe_unused]], const unsig
 
 		break;
 	}
-
+	
 	case DLL_PROCESS_DETACH: {
 		release();
 		break;

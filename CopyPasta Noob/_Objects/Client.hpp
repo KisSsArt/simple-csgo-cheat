@@ -8,8 +8,13 @@ public:
 		Memory::Write<int>(Memory::clientBase() + dwForceAttack2, trigger ? 5 : 4);
 	}
 
+	static void ForceJump()//bool jump 
+	{
+		Memory::Write<int>(Memory::clientBase() + dwForceJump, 6);
+	}
+
 	static void ForceJump(bool jump) {
-		Memory::Write<int>(Memory::clientBase() + dwForceJump, jump ? 5 : 4);
+    	Memory::Write<int>(Memory::clientBase() + dwForceJump, jump ? 5 : 4);
 	}
 
 	static uintptr_t GlowObjectManager() {

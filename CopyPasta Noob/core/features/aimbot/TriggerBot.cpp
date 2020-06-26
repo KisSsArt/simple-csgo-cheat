@@ -4,6 +4,41 @@
 #include <math.h>
 #include "../../../_Objects/Objects.hpp"
 
+
+
+void aimbot::aim::trigger(c_usercmd* cmd) {
+    if (!variables::trigger_bool) {
+        return;
+    }
+
+    uintptr_t EntityList = Memory::Read<uintptr_t>(Memory::clientBase() + hazedumper::signatures::dwEntityList);
+
+    int crosshairEntity = Memory::Read<int>(Memory::clientBase() + hazedumper::signatures::dwEntityList + (LocalPlayer::CrosshairID() - 1) * 16);
+    int entityTeam = Memory::Read<int>(crosshairEntity + hazedumper::netvars::m_iTeamNum);
+
+    int entityHP = Memory::Read<int>(crosshairEntity + hazedumper::netvars::m_iHealth);
+
+    if (LocalPlayer::CrosshairID() != 0 && crosshairEntity != 0 && LocalPlayer::Team() != entityTeam && crosshairEntity > 0 && entityHP > 0)
+    {
+        Sleep(variables::delay_shoot);
+        Client::ForceAttack(true);
+        Sleep(variables::durationOfTheShoot);
+        Client::ForceAttack(false);
+    }
+}
+
+void aimbot::aim::rageAim(c_usercmd* cmd) {
+    if (!variables::rageaim_bool) {
+        return;
+    }
+    else {
+        return;
+    }
+}
+
+
+
+
 //void ForceAttack(bool shoot, uintptr_t client)
 //{
 //    *(int*)(client + hazedumper::signatures::dwForceAttack) = shoot ? 5 : 4;
@@ -181,45 +216,6 @@
 //    }
 //}
 //
-
-void aimbot::aim::trigger(c_usercmd* cmd) {
-    if (!variables::trigger_bool) {
-        return;
-    }
-    
-    uintptr_t EntityList = Memory::Read<uintptr_t>(Memory::clientBase() + hazedumper::signatures::dwEntityList);
-
-    int crosshairEntity = Memory::Read<int>(Memory::clientBase() + hazedumper::signatures::dwEntityList + (LocalPlayer::CrosshairID() - 1) * 16);
-    int entityTeam = Memory::Read<int>(crosshairEntity + hazedumper::netvars::m_iTeamNum);
-
-    int entityHP = Memory::Read<int>(crosshairEntity + hazedumper::netvars::m_iHealth);
-
-    if (LocalPlayer::CrosshairID() != 0 && crosshairEntity != 0 && LocalPlayer::Team() != entityTeam && crosshairEntity > 0 && entityHP > 0)
-    {
-        Sleep(1);
-        Client::ForceAttack(true);
-        Sleep(10);
-        Client::ForceAttack(false);
-    }
-}
-
-void aimbot::aim::rageAim(c_usercmd* cmd) {
-    if (!variables::rageaim_bool) {
-        return;
-    }
-    
-
-
-}
-
-
-
-
-
-
-
-
-
 
 
 //void GetClosestPlayerToCrossHair(IClientEntity* Player, float& max, float aimfov)

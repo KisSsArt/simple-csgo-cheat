@@ -8,6 +8,9 @@ namespace variables {
 	//TriggerBot
 	inline bool trigger_bool = false;
 
+	inline float delay_shoot = 1;
+	inline float durationOfTheShoot = 10;
+
 	//rageaim
 	inline bool rageaim_bool = false;
 #pragma endregion
