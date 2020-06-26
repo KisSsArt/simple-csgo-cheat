@@ -1,6 +1,5 @@
 # CopyPastaNoob's
-CopyPastaNoobs's is a CSGO Cheat that is written in C++. 
-Based on [alphauc SDK](https://github.com/alphauc/sdk). (no longer)
+CPN is a CSGO Cheat that is written in C++. Based on [alphauc/sdk](https://github.com/alphauc/sdk).
 
 # Download
 Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases page and download it.
@@ -18,8 +17,8 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [ ] Skin Changer
   - [ ] Knife Changer
   - [ ] Glove Changer
-  - [x] Remake GUI (in progress)
-  - [x] Max Optimization (maybe)
+  - [ ] Remake GUI (in progress)
+  - [ ] Max Optimization (in progress)
   - [ ] Configs
   
   # Developers
