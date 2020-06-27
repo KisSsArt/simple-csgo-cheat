@@ -17,8 +17,8 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [x] FOVChanger
   
  ### Soon:
-  - [-] Remake GUI (in progress)
-  - [-] Max Optimization (in progress)
+  - [ ] Remake GUI (in progress)
+  - [ ] Max Optimization (in progress)
     
  ### In the plans:
   - [ ] ESP
