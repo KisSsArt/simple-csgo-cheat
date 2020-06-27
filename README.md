@@ -8,18 +8,18 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
 
 # Functions
  ### Ready:
-  - [x] Glow.
-  - [x] Customization for glow.
+  - [x] Glow
+  - [x] Customization for glow
   - [x] Bunny-Hop
   - [x] Anti-Flash
   - [x] TriggerBot
   - [x] RadarHack
-  - [x] FOVChanger
   
  ### Soon:
-  - [ ] Remake GUI (in progress)
-  - [ ] Max Optimization (in progress)
-    
+  - [ ] Remake GUI
+  - [ ] Max Optimization
+  - [ ] FOVChanger
+  
  ### In the plans:
   - [ ] ESP
   - [ ] Aimbot
