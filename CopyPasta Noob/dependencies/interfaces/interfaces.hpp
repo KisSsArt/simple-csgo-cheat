@@ -43,7 +43,7 @@ namespace interfaces {
 
 				break;
 			case interface_type::bruteforce:
-				char buf[128];
+				char buf[128];//128
 
 				for (uint32_t i = 0; i <= 100; i++) {
 					memset((void*)buf, 0, sizeof buf);

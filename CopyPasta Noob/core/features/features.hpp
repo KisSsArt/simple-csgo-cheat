@@ -2,21 +2,19 @@
 #include "../menu/variables.hpp"
 
 namespace misc {
-	namespace movement {
+	namespace allMisc {
 		void bunny_hop(c_usercmd* cmd);
-	};
-	namespace visuals {
 		void antiflash(c_usercmd* cmd);
-	};
-	namespace radar {
 		void radarHack(c_usercmd* cmd);
 	};
+	
 }
 
 namespace visuals {
 	namespace wh {
 		void glow(c_usercmd* cmd);
 		void ESP(c_usercmd* cmd);
+		void FovChanger(c_usercmd* cmd);
 	};
 }
 

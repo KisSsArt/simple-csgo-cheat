@@ -6,7 +6,7 @@
 
 unsigned long WINAPI initialize(void* instance) {
 	while (!GetModuleHandleA("serverbrowser.dll"))
-		Sleep(200);
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
 #ifdef _DEBUG
 	console::initialize("CPN Console");

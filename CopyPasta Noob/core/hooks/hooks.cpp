@@ -8,6 +8,7 @@ hooks::create_move::fn create_move_original = nullptr;
 hooks::paint_traverse::fn paint_traverse_original = nullptr;
 
 bool hooks::initialize() {
+
 	auto create_move_target = reinterpret_cast<void*>(get_virtual(interfaces::clientmode, 24));
 	auto paint_traverse_target = reinterpret_cast<void*>(get_virtual(interfaces::panel, 41));
 
@@ -31,20 +32,38 @@ bool hooks::initialize() {
 		return false;
 	}
 
-	console::log("[setup] hooks initialized!\n");
+
+	/*if (MH_Initialize() == MH_OK) {
+		console::log("[setup] hooks initialized!\n");
+		return true;
+	}
+	else {
+		throw std::runtime_error("[setup] failed to initialize.");
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		return false;
+	}*/
+
+	std::cout << "[setup] hooks initialized!\n";
 	return true;
 }
 
-void hooks::release() {
-	std::thread mhU([]() { MH_Uninitialize(); });
-	std::thread mhD([]() {MH_DisableHook(MH_ALL_HOOKS); });
 
-    mhU.detach();
+/////
+void hooks::release() 
+{
+	/*std::thread mhU([]() { MH_Uninitialize(); });
+	mhU.detach();*/
+
+	std::thread mhD([]() 
+		{
+			MH_DisableHook(MH_ALL_HOOKS);
+		});
 	mhD.detach();
-
+    
 	/*MH_Uninitialize();
 	MH_DisableHook(MH_ALL_HOOKS);*/
 }
+
 
 bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_frametime, c_usercmd* cmd) {
 	//create_move_original(input_sample_frametime, cmd);
@@ -97,14 +116,14 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 
 	std::thread Radar([cmd]()
 		{
-			misc::radar::radarHack(cmd);
+			misc::allMisc::radarHack(cmd);
 		});
 	Radar.detach();
 
 
 	std::thread antiflash([cmd]()
 		{
-			misc::visuals::antiflash(cmd);
+			misc::allMisc::antiflash(cmd);
 		});
 	antiflash.detach();
 	
@@ -116,9 +135,19 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 	triggerBot.detach();
 	
 
-	std::thread bhop(misc::movement::bunny_hop, cmd);
+	std::thread bhop([cmd]() 
+		{
+			misc::allMisc::bunny_hop(cmd);
+		});
 	bhop.detach();
 
+	
+	std::thread FOV([cmd]()
+		{
+			visuals::wh::FovChanger(cmd);
+		});
+	FOV.detach();
+	
 
 	//prediction::start(cmd); {
 	//} prediction::end();

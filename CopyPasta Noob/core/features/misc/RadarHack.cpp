@@ -1,7 +1,7 @@
 #include "../features.hpp"
 #include "../../../_Objects/Objects.hpp"
 
-void misc::radar::radarHack(c_usercmd* cmd) {
+void misc::allMisc::radarHack(c_usercmd* cmd) {
 	if (!variables::radar_bool) {
 		return;
 	}

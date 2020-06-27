@@ -57,7 +57,7 @@ bool interfaces::initialize() {
 	move_helper = **(player_move_helper***)(utilities::pattern_scan("client.dll", sig_player_move_helper) + 2);
 	weapon_system = *(i_weapon_system**)(utilities::pattern_scan("client.dll", sig_weapon_data) + 2);
 
-	console::log("[setup] interfaces initialized!\n");
+	std::cout << ("[setup] interfaces initialized!\n");
 
 	return true;
 }

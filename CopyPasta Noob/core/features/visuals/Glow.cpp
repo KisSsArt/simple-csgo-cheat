@@ -5,7 +5,7 @@
 #include <thread>
 
 
-void glowRander() {
+void glowRender() {
 
     for (int i = 0; i < 32; i++)
     {
@@ -100,7 +100,7 @@ void visuals::wh::glow(c_usercmd* cmd) {
 
     if (Engine::InGame())
     {
-        std::thread glowrander(glowRander);
-        glowrander.join();
+        std::thread glowrender(glowRender);
+        glowrender.join();
     }
 };

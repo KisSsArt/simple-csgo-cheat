@@ -4,6 +4,7 @@
 #include <math.h>
 #include "../../../_Objects/Objects.hpp"
 
+#include <thread>
 
 
 void aimbot::aim::trigger(c_usercmd* cmd) {
@@ -20,9 +21,11 @@ void aimbot::aim::trigger(c_usercmd* cmd) {
 
     if (LocalPlayer::CrosshairID() != 0 && crosshairEntity != 0 && LocalPlayer::Team() != entityTeam && crosshairEntity > 0 && entityHP > 0)
     {
-        Sleep(variables::delay_shoot);
+        std::this_thread::sleep_for(std::chrono::milliseconds((int)variables::delay_shoot));
+        //Sleep(variables::delay_shoot);
         Client::ForceAttack(true);
-        Sleep(variables::durationOfTheShoot);
+        std::this_thread::sleep_for(std::chrono::milliseconds((int)variables::durationOfTheShoot));
+        //Sleep(variables::durationOfTheShoot);
         Client::ForceAttack(false);
     }
 }

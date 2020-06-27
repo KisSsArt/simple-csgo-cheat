@@ -9,11 +9,11 @@ void render::initialize() {
 	render::fonts::group_label_font = interfaces::surface->font_create();
 	render::fonts::test_font = interfaces::surface->font_create();
 
-	interfaces::surface->set_font_glyph(render::fonts::watermark_font, "Terminal", 15, 600, 0, 0, font_flags::fontflag_dropshadow);
+	interfaces::surface->set_font_glyph(render::fonts::watermark_font, "Arial", 15, 600, 0, 0, font_flags::fontflag_dropshadow);
 	interfaces::surface->set_font_glyph(render::fonts::group_label_font, "Terminal", 35, 1, 0, 0, font_flags::fontflag_dropshadow);
 	interfaces::surface->set_font_glyph(render::fonts::test_font, "Terminal", 25, 800, 0, 0, font_flags::fontflag_dropshadow); //Tahoma
 
-	console::log("[setup] render initialized!\n");
+	std::cout << ("[setup] render initialized!\n");
 }
 
 

@@ -34,6 +34,7 @@
 #include "buffer.h"
 #include "trampoline.h"
 
+
 #ifndef ARRAYSIZE
 #define ARRAYSIZE(A) (sizeof(A)/sizeof((A)[0]))
 #endif
@@ -433,41 +434,41 @@ static MH_STATUS EnableAllHooksLL(BOOL enable)
 }
 
 //-------------------------------------------------------------------------
-static VOID EnterSpinLock(VOID)
-{
-	SIZE_T spinCount = 0;
-
-	// Wait until the flag is FALSE.
-	while (InterlockedCompareExchange(&g_isLocked, TRUE, FALSE) != FALSE)
-	{
-		// No need to generate a memory barrier here, since InterlockedCompareExchange()
-		// generates a full memory barrier itself.
-
-		// Prevent the loop from being too busy.
-		if (spinCount < 32)
-			Sleep(0);
-		else
-			Sleep(1);
-
-		spinCount++;
-	}
-}
+//static VOID EnterSpinLock(VOID)
+//{
+//	SIZE_T spinCount = 0;
+//
+//	// Wait until the flag is FALSE.
+//	while (InterlockedCompareExchange(&g_isLocked, TRUE, FALSE) != FALSE)
+//	{
+//		// No need to generate a memory barrier here, since InterlockedCompareExchange()
+//		// generates a full memory barrier itself.
+//
+//		// Prevent the loop from being too busy.
+//		if (!spinCount < 32)
+//		{
+//			Sleep(1);
+//		}
+//			
+//		spinCount++;
+//	}
+//}
 
 //-------------------------------------------------------------------------
-static VOID LeaveSpinLock(VOID)
-{
-	// No need to generate a memory barrier here, since InterlockedExchange()
-	// generates a full memory barrier itself.
-
-	InterlockedExchange(&g_isLocked, FALSE);
-}
+//static VOID LeaveSpinLock(VOID)
+//{
+//	// No need to generate a memory barrier here, since InterlockedExchange()
+//	// generates a full memory barrier itself.
+//
+//	InterlockedExchange(&g_isLocked, FALSE);
+//}
 
 //-------------------------------------------------------------------------
 MH_STATUS WINAPI MH_Initialize(VOID)
 {
 	MH_STATUS status = MH_OK;
 
-	EnterSpinLock();
+	//EnterSpinLock();
 
 	if (g_hHeap == NULL)
 	{
@@ -487,7 +488,7 @@ MH_STATUS WINAPI MH_Initialize(VOID)
 		status = MH_ERROR_ALREADY_INITIALIZED;
 	}
 
-	LeaveSpinLock();
+	//LeaveSpinLock();
 
 	return status;
 }
@@ -497,7 +498,7 @@ MH_STATUS WINAPI MH_Uninitialize(VOID)
 {
 	MH_STATUS status = MH_OK;
 
-	EnterSpinLock();
+	//EnterSpinLock();
 
 	if (g_hHeap != NULL)
 	{
@@ -526,7 +527,7 @@ MH_STATUS WINAPI MH_Uninitialize(VOID)
 		status = MH_ERROR_NOT_INITIALIZED;
 	}
 
-	LeaveSpinLock();
+	//LeaveSpinLock();
 
 	return status;
 }
@@ -536,7 +537,7 @@ MH_STATUS WINAPI MH_CreateHook(LPVOID pTarget, LPVOID pDetour, LPVOID * ppOrigin
 {
 	MH_STATUS status = MH_OK;
 
-	EnterSpinLock();
+	//EnterSpinLock();
 
 	if (g_hHeap != NULL)
 	{
@@ -624,7 +625,7 @@ MH_STATUS WINAPI MH_CreateHook(LPVOID pTarget, LPVOID pDetour, LPVOID * ppOrigin
 		status = MH_ERROR_NOT_INITIALIZED;
 	}
 
-	LeaveSpinLock();
+	//LeaveSpinLock();
 
 	return status;
 }
@@ -634,7 +635,7 @@ MH_STATUS WINAPI MH_RemoveHook(LPVOID pTarget)
 {
 	MH_STATUS status = MH_OK;
 
-	EnterSpinLock();
+	//EnterSpinLock();
 
 	if (g_hHeap != NULL)
 	{
@@ -667,17 +668,18 @@ MH_STATUS WINAPI MH_RemoveHook(LPVOID pTarget)
 		status = MH_ERROR_NOT_INITIALIZED;
 	}
 
-	LeaveSpinLock();
+	//LeaveSpinLock();
 
 	return status;
 }
 
+///////
 //-------------------------------------------------------------------------
 static MH_STATUS EnableHook(LPVOID pTarget, BOOL enable)
 {
-	MH_STATUS status = MH_OK;
+	MH_STATUS status = MH_OK; //1
 
-	EnterSpinLock();
+	//EnterSpinLock();
 
 	if (g_hHeap != NULL)
 	{
@@ -688,7 +690,7 @@ static MH_STATUS EnableHook(LPVOID pTarget, BOOL enable)
 		else
 		{
 			FROZEN_THREADS threads;
-			UINT pos = FindHookEntry(pTarget);
+			UINT pos = FindHookEntry(pTarget); //for
 			if (pos != INVALID_HOOK_POS)
 			{
 				if (g_hooks.pItems[pos].isEnabled != enable)
@@ -715,10 +717,11 @@ static MH_STATUS EnableHook(LPVOID pTarget, BOOL enable)
 		status = MH_ERROR_NOT_INITIALIZED;
 	}
 
-	LeaveSpinLock();
+	//LeaveSpinLock();
 
 	return status;
 }
+/////////
 
 //-------------------------------------------------------------------------
 MH_STATUS WINAPI MH_EnableHook(LPVOID pTarget)
@@ -726,7 +729,7 @@ MH_STATUS WINAPI MH_EnableHook(LPVOID pTarget)
 	return EnableHook(pTarget, TRUE);
 }
 
-//-------------------------------------------------------------------------
+//-------------------------------------------------------------------------//////
 MH_STATUS WINAPI MH_DisableHook(LPVOID pTarget)
 {
 	return EnableHook(pTarget, FALSE);
@@ -737,7 +740,7 @@ static MH_STATUS QueueHook(LPVOID pTarget, BOOL queueEnable)
 {
 	MH_STATUS status = MH_OK;
 
-	EnterSpinLock();
+	//EnterSpinLock();
 
 	if (g_hHeap != NULL)
 	{
@@ -765,7 +768,7 @@ static MH_STATUS QueueHook(LPVOID pTarget, BOOL queueEnable)
 		status = MH_ERROR_NOT_INITIALIZED;
 	}
 
-	LeaveSpinLock();
+	//LeaveSpinLock();
 
 	return status;
 }
@@ -788,7 +791,7 @@ MH_STATUS WINAPI MH_ApplyQueued(VOID)
 	MH_STATUS status = MH_OK;
 	UINT i, first = INVALID_HOOK_POS;
 
-	EnterSpinLock();
+	//EnterSpinLock();
 
 	if (g_hHeap != NULL)
 	{
@@ -825,7 +828,7 @@ MH_STATUS WINAPI MH_ApplyQueued(VOID)
 		status = MH_ERROR_NOT_INITIALIZED;
 	}
 
-	LeaveSpinLock();
+	//LeaveSpinLock();
 
 	return status;
 }

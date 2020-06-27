@@ -40,8 +40,8 @@ void menu::render() {
 		group_box(menu_params::MenuMargin, 85, menu_params::width - menu_params::MenuMargin * 2, menu_params::height - menu_params::MenuMargin * 2, watermark_font, "Aimbot", false); {
 			check_box(menu_params::MenuMargin + 10, 95, 310, watermark_font, "Trigger", trigger_bool);
 
-			slider(menu_params::MenuMargin + 10, 110, 310, 60, watermark_font, "Delay Shoot", variables::delay_shoot, 0.f, 5.f);
-			slider(menu_params::MenuMargin + 10, 125, 310, 60, watermark_font, "Duration Of The Shoot", variables::durationOfTheShoot, 3.5f, 20.f);
+			slider(menu_params::MenuMargin + 10, 110, 310, 60, watermark_font, "Delay Shoot", variables::delay_shoot, 0.f, 100.f);
+			slider(menu_params::MenuMargin + 10, 125, 310, 60, watermark_font, "Duration Of The Shoot", variables::durationOfTheShoot, 0.f, 500.f);
 
 			check_box(menu_params::MenuMargin + 10, 170, 310, watermark_font, "RageAim", rageaim_bool);
 		}
@@ -90,9 +90,11 @@ void menu::render() {
 		break;
 	case 3: // Misc
 		group_box(menu_params::MenuMargin, 85, menu_params::width - menu_params::MenuMargin * 2, menu_params::height - menu_params::MenuMargin * 2, watermark_font, "Misc", false); {
-			check_box(menu_params::MenuMargin + 10, 95, 310, watermark_font, "BunnyHop", bunnyhop_bool);
-			check_box(menu_params::MenuMargin + 10, 110, 310, watermark_font, "AntiFlash", antiflash_bool);
-			check_box(menu_params::MenuMargin + 10, 125, 310, watermark_font, "RadarHack", radar_bool);
+			check_box(menu_params::MenuMargin + 10, 95, 310, watermark_font, "Enable", miscEnable);
+			check_box(menu_params::MenuMargin + 20, 110, 310, watermark_font, "BunnyHop", bunnyhop_bool);
+			check_box(menu_params::MenuMargin + 20, 125, 310, watermark_font, "AntiFlash", antiflash_bool);
+			check_box(menu_params::MenuMargin + 20, 140, 310, watermark_font, "RadarHack", radar_bool);
+			slider(menu_params::MenuMargin + 20, 155, 310, 125, watermark_font, "FOV", FOV, 0.f, 180.f);
 		}
 		break;
 	}

@@ -4,12 +4,19 @@ namespace variables {
 	inline bool test_bool = false;
 	inline float test_float = 0.f;
 
+	//Misc
+	inline bool miscEnable = false;
+
+	//FOV
+	inline float FOV = 90;
+
+
 #pragma region Aimbot
 	//TriggerBot
 	inline bool trigger_bool = false;
 
-	inline float delay_shoot = 1;
-	inline float durationOfTheShoot = 10;
+	inline float delay_shoot = 10;
+	inline float durationOfTheShoot = 100;
 
 	//rageaim
 	inline bool rageaim_bool = false;
