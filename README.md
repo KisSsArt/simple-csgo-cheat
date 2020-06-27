@@ -6,7 +6,8 @@ CPN is a CSGO Cheat that is written in C++. Based on [alphauc/sdk](https://githu
 Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases page and download it.
 
 
-# In the plans
+## Functions
+  Ready:
   - [x] Glow.
   - [x] Customization for glow.
   - [x] Bunny-Hop
@@ -14,14 +15,17 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [x] TriggerBot
   - [x] RadarHack
   - [x] FOVChanger
+  Soon:
+  - [ ] Remake GUI (in progress)
+  - [ ] Max Optimization (in progress)
+    
+  In the plans:
   - [ ] ESP
   - [ ] Aimbot
   - [ ] Silent Aim
   - [ ] Skin Changer
   - [ ] Knife Changer
   - [ ] Glove Changer
-  - [ ] Remake GUI (in progress)
-  - [ ] Max Optimization (in progress)
   - [ ] Configs
   
   
