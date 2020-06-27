@@ -7,7 +7,7 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
 
 
 # Functions
- ## Ready:
+ ### Ready:
   - [x] Glow.
   - [x] Customization for glow.
   - [x] Bunny-Hop
@@ -16,11 +16,11 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [x] RadarHack
   - [x] FOVChanger
   
- ## Soon:
-  - [ ] Remake GUI (in progress)
-  - [ ] Max Optimization (in progress)
+ ### Soon:
+  - [@] Remake GUI (in progress)
+  - [@] Max Optimization (in progress)
     
- ## In the plans:
+ ### In the plans:
   - [ ] ESP
   - [ ] Aimbot
   - [ ] Silent Aim
