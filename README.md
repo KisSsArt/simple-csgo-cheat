@@ -1,11 +1,6 @@
 # CopyPastaNoob's
 CPN is a CSGO Cheat that is written in C++. Based on [alphauc/sdk](https://github.com/alphauc/sdk).
 
-
-# Download
-Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases page and download it.
-
-
 # Functions
  ### Ready:
   - [x] Glow
@@ -29,6 +24,8 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [ ] Glove Changer
   - [ ] Configs
   
+  # Download
+  Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases page and download it.
   
   # Developers
   - [KisSsArt](https://github.com/KisSsArt)#2362
