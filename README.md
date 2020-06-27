@@ -13,6 +13,7 @@ Click [here](https://github.com/KisSsArt/CPN/releases) to go to the releases pag
   - [x] Anti-Flash
   - [x] TriggerBot
   - [x] RadarHack
+  - [x] FOVChanger
   - [ ] ESP
   - [ ] Aimbot
   - [ ] Silent Aim
