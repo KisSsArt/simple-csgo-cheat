@@ -23,6 +23,7 @@ CPN is a CSGO Cheat that is written in C++. Based on [alphauc/sdk](https://githu
   - [ ] Knife Changer
   - [ ] Glove Changer
   - [ ] Configs
+  - [ ] Personal injector
   
   ## Developers
   - [KisSsArt](https://github.com/KisSsArt)#2362
