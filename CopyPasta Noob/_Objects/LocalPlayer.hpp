@@ -21,11 +21,15 @@ public:
 	}
 
 	static void FovChanger(float FOV) {
-		Memory::Write<DWORD>(LocalPlayerPtr() + m_iFOV, (int)FOV);
+		Memory::Write<int>(LocalPlayerPtr() + m_iFOV , FOV);
 	}
 	
 	static int FovChanger() {
 		return Memory::Read<int>(LocalPlayerPtr() + m_iFOV);
+	}
+
+	static int Scoped() {
+		return Memory::Read<bool>(LocalPlayerPtr() + m_bIsScoped);
 	}
 
 	static bool checkLocalVal() {

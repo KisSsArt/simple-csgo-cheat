@@ -9,14 +9,12 @@ void render::initialize() {
 	render::fonts::group_label_font = interfaces::surface->font_create();
 	render::fonts::test_font = interfaces::surface->font_create();
 
-	interfaces::surface->set_font_glyph(render::fonts::watermark_font, "Arial", 15, 600, 0, 0, font_flags::fontflag_dropshadow);
-	interfaces::surface->set_font_glyph(render::fonts::group_label_font, "Terminal", 35, 1, 0, 0, font_flags::fontflag_dropshadow);
-	interfaces::surface->set_font_glyph(render::fonts::test_font, "Terminal", 25, 800, 0, 0, font_flags::fontflag_dropshadow); //Tahoma
+	interfaces::surface->set_font_glyph(render::fonts::watermark_font, "Impact", 15, 600, 0, 0, font_flags::fontflag_dropshadow);//Impact
+	interfaces::surface->set_font_glyph(render::fonts::group_label_font, "Impact", 35, 1, 0, 0, font_flags::fontflag_dropshadow);
+	interfaces::surface->set_font_glyph(render::fonts::test_font, "Impact", 25, 800, 0, 0, font_flags::fontflag_dropshadow); //Tahoma
 
 	std::cout << ("[setup] render initialized!\n");
 }
-
-
 
 void render::draw_line(int x1, int y1, int x2, int y2, color colour) {
 	interfaces::surface->set_drawing_color(colour.r, colour.g, colour.b, colour.a);

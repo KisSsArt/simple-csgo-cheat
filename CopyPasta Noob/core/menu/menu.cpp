@@ -90,11 +90,11 @@ void menu::render() {
 		break;
 	case 3: // Misc
 		group_box(menu_params::MenuMargin, 85, menu_params::width - menu_params::MenuMargin * 2, menu_params::height - menu_params::MenuMargin * 2, watermark_font, "Misc", false); {
-			check_box(menu_params::MenuMargin + 10, 95, 310, watermark_font, "Enable", miscEnable);
-			check_box(menu_params::MenuMargin + 20, 110, 310, watermark_font, "BunnyHop", bunnyhop_bool);
-			check_box(menu_params::MenuMargin + 20, 125, 310, watermark_font, "AntiFlash", antiflash_bool);
-			check_box(menu_params::MenuMargin + 20, 140, 310, watermark_font, "RadarHack", radar_bool);
-			slider(menu_params::MenuMargin + 20, 155, 310, 125, watermark_font, "FOV", FOV, 0.f, 180.f);
+			check_box(menu_params::MenuMargin + 10, 95, 310, watermark_font, "FOV", FovEnable);
+			slider(menu_params::MenuMargin + 20, 110, 310, 125, watermark_font, "overview", FOV, 0.f, 180.f);
+			check_box(menu_params::MenuMargin + 20, 140, 310, watermark_font, "BunnyHop", bunnyhop_bool);
+			check_box(menu_params::MenuMargin + 20, 155, 310, watermark_font, "AntiFlash", antiflash_bool);
+			check_box(menu_params::MenuMargin + 20, 170, 310, watermark_font, "RadarHack", radar_bool);
 		}
 		break;
 	}

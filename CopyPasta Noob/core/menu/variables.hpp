@@ -5,10 +5,10 @@ namespace variables {
 	inline float test_float = 0.f;
 
 	//Misc
-	inline bool miscEnable = false;
+	inline bool FovEnable = false;
 
 	//FOV
-	inline float FOV = 90;
+	inline float FOV = 90.f;
 
 
 #pragma region Aimbot

@@ -5,9 +5,6 @@
 
 void misc::allMisc::bunny_hop(c_usercmd* cmd)
 {
-    if (!variables::miscEnable) {
-        return;
-    }
 	if (!variables::bunnyhop_bool)
     {
 		return;
@@ -22,9 +19,6 @@ void misc::allMisc::bunny_hop(c_usercmd* cmd)
 };
 
 void misc::allMisc::antiflash(c_usercmd* cmd) {
-    if (!variables::miscEnable) {
-        return;
-    }
     if (!variables::antiflash_bool) {
         return;
     }
@@ -32,17 +26,19 @@ void misc::allMisc::antiflash(c_usercmd* cmd) {
     LocalPlayer::FlashAlpha(.0f);
 };
 
-void visuals::wh::FovChanger(c_usercmd* cmd) {
-    if (!variables::miscEnable) {
+void visuals::FOV::FovChanger(c_usercmd* cmd) {
+    if (!variables::FovEnable) {
         return;
     }
 
-    if (LocalPlayer::FovChanger() != (int)variables::FOV) {
-        LocalPlayer::FovChanger(variables::FOV);
+    if (LocalPlayer::FovChanger() != variables::FOV) {
+        if (LocalPlayer::Scoped()) 
+        {
+            LocalPlayer::FovChanger(variables::FOV - 50);
+        }
+        else
+        {
+            LocalPlayer::FovChanger(variables::FOV);
+        }
     }
-    else {
-        return;
-    }
-
-    //me.WriteDWORD(player + m_iFOVStart - 4, 120);
 };

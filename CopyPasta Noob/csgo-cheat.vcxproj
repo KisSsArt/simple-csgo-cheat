@@ -93,6 +93,7 @@
     <ClCompile Include="core\features\misc\RadarHack.cpp" />
     <ClCompile Include="core\features\visuals\ESP.cpp" />
     <ClCompile Include="core\features\visuals\Glow.cpp" />
+    <ClCompile Include="core\features\visuals\hitmarker.cpp" />
     <ClCompile Include="core\hooks\hooks.cpp" />
     <ClCompile Include="core\menu\framework.cpp" />
     <ClCompile Include="core\menu\menu.cpp" />
@@ -116,6 +117,7 @@
   <ItemGroup>
     <ClInclude Include="core\features\features.hpp" />
     <ClInclude Include="core\features\misc\engine_prediction.hpp" />
+    <ClInclude Include="core\features\visuals\hitmarker.hpp" />
     <ClInclude Include="core\hooks\hooks.hpp" />
     <ClInclude Include="core\menu\framework.hpp" />
     <ClInclude Include="core\menu\menu.hpp" />

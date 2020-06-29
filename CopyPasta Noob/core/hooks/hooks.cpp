@@ -3,6 +3,7 @@
 #include "../features/features.hpp"
 //#include "../features/misc/engine_prediction.hpp"
 #include "../menu/menu.hpp"
+#include "../../core/features/visuals/hitmarker.hpp"
 
 hooks::create_move::fn create_move_original = nullptr;
 hooks::paint_traverse::fn paint_traverse_original = nullptr;
@@ -106,6 +107,12 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 	std::thread triggerBot(aimbot::aim::trigger, cmd);
 	triggerBot.detach();*/
 
+	std::thread FOV([cmd]()
+		{
+			visuals::FOV::FovChanger(cmd);
+		});
+	FOV.detach();
+
 
 	std::thread glow([cmd]() 
 		{ 
@@ -142,13 +149,8 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 	bhop.detach();
 
 	
-	std::thread FOV([cmd]()
-		{
-			visuals::wh::FovChanger(cmd);
-		});
-	FOV.detach();
+	/*hitmarker.run();*/
 	
-
 	//prediction::start(cmd); {
 	//} prediction::end();
 

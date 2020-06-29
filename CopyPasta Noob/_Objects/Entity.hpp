@@ -57,10 +57,14 @@ public:
 	}
 
     bool Spotted() {
-        return Memory::Read<int>(Base() + m_bSpotted)  == 1;
+        return Memory::Read<int>(Base() + m_bSpotted) == 1;
 	}
 
     void Spotted(bool Spotted) {
         Memory::Write<int>(Base() + m_bSpotted, Spotted ? 1 : 0);
 	}
+    
+    int Scoped() {
+        return Memory::Read<bool>(Base() + m_bIsScoped);
+    }
 };
