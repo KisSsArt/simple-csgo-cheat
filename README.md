@@ -9,11 +9,12 @@ CPN is a CSGO Cheat that is written in C++. Based on [alphauc/sdk](https://githu
   - [x] Anti-Flash
   - [x] TriggerBot
   - [x] RadarHack
+  - [x] FOVChanger
   
  #### Soon:
   - [ ] Remake GUI
   - [ ] Max Optimization
-  - [ ] FOVChanger
+  - [ ] Hitmarker
   
  #### In the plans:
   - [ ] ESP
@@ -23,6 +24,9 @@ CPN is a CSGO Cheat that is written in C++. Based on [alphauc/sdk](https://githu
   - [ ] Knife Changer
   - [ ] Glove Changer
   - [ ] Configs
+  - [ ] Personal injector
+  - [ ] ClanTag Changer
+  - [ ] Rage
   
   ## Developers
   - [KisSsArt](https://github.com/KisSsArt)#2362
