@@ -10,6 +10,8 @@ namespace variables {
 	//FOV
 	inline float FOV = 90.f;
 
+	//TagChanger
+	inline bool clanTag_bool = false;
 
 #pragma region Aimbot
 	//TriggerBot

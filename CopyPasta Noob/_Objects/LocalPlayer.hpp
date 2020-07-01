@@ -32,6 +32,14 @@ public:
 		return Memory::Read<bool>(LocalPlayerPtr() + m_bIsScoped);
 	}
 
+	static void SetClanTag(std::string Tag) {
+		Memory::Write<std::string>(LocalPlayerPtr() + dwSetClanTag, Tag);
+	}
+
+	static int GetClanTag() {
+		return Memory::Read<int>(LocalPlayerPtr() + dwSetClanTag);
+	}
+
 	static bool checkLocalVal() {
 		Vec3 val = Memory::Read<Vec3>(LocalPlayerPtr() + m_vecVelocity);
 		int vel = val.x + val.y + val.z;

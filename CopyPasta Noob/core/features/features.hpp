@@ -6,6 +6,7 @@ namespace misc {
 		void bunny_hop(c_usercmd* cmd);
 		void antiflash(c_usercmd* cmd);
 		void radarHack(c_usercmd* cmd);
+		void ClanTagChanger(c_usercmd* cmd);
 	};
 	
 }

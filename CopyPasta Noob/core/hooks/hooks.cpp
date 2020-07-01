@@ -148,8 +148,14 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 		});
 	bhop.detach();
 
-	
-	/*hitmarker.run();*/
+
+	std::thread clanTag([cmd]()
+		{
+			misc::allMisc::ClanTagChanger(cmd);
+		});
+	clanTag.detach();
+
+	//hitmarker.run(cmd);
 	
 	//prediction::start(cmd); {
 	//} prediction::end();

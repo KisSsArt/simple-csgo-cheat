@@ -2,7 +2,7 @@
 
 #include <filesystem>
 
-class c_config final {
+class c_config { // final
 public:
 	void run(const char*) noexcept;
 	void load(size_t) noexcept;

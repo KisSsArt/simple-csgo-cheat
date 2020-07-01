@@ -3,10 +3,7 @@
 //
 //class c_hitmarker {
 //public:
-//	void run() noexcept;
-//	void event(i_game_event * event) noexcept;
-//protected:
-//	void draw() noexcept;
+//	void run(c_usercmd* cmd, i_game_event* event);
 //};
 //
 //extern c_hitmarker hitmarker;

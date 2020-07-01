@@ -95,6 +95,7 @@ void menu::render() {
 			check_box(menu_params::MenuMargin + 20, 140, 310, watermark_font, "BunnyHop", bunnyhop_bool);
 			check_box(menu_params::MenuMargin + 20, 155, 310, watermark_font, "AntiFlash", antiflash_bool);
 			check_box(menu_params::MenuMargin + 20, 170, 310, watermark_font, "RadarHack", radar_bool);
+			check_box(menu_params::MenuMargin + 20, 185, 310, watermark_font, "ClanTag Changer", clanTag_bool);
 		}
 		break;
 	}

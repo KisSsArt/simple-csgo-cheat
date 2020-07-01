@@ -42,3 +42,41 @@ void visuals::FOV::FovChanger(c_usercmd* cmd) {
         }
     }
 };
+
+
+
+//void misc::allMisc::ClanTagChanger(c_usercmd* cmd) {
+//    if (!variables::clanTag_bool) {
+//        return;
+//    }
+//
+//    std::cout << LocalPlayer::GetClanTag() << std::endl;
+//
+//    /*for (int i = 0; i < 3; i++) {
+//        switch (i)
+//        {
+//        case 1:
+//            LocalPlayer::SetClanTag(" ");
+//            break;
+//        case 2:
+//            LocalPlayer::SetClanTag("C");
+//            break;
+//        case 3:
+//            LocalPlayer::SetClanTag("CP");
+//            break;
+//        case 4:
+//            LocalPlayer::SetClanTag("CPN");
+//            break;
+//        case 5:
+//            LocalPlayer::SetClanTag("CP");
+//            break;
+//        case 6:
+//            LocalPlayer::SetClanTag("C");
+//            break;
+//        case 7:
+//            LocalPlayer::SetClanTag(" ");
+//            break;
+//        }
+//    }*/
+//
+//}
