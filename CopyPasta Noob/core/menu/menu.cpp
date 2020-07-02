@@ -86,6 +86,10 @@ void menu::render() {
 	case 2: // ESP
 		group_box(menu_params::MenuMargin, 85, menu_params::width - menu_params::MenuMargin * 2, menu_params::height - menu_params::MenuMargin * 2, watermark_font, "ESP", false); {
 			check_box(menu_params::MenuMargin + 10, 95, 310, watermark_font, "ESP", ESP_bool);
+
+			check_box(menu_params::MenuMargin + 20, 110, 310, watermark_font, "Boxes", ShowBoxes);
+			check_box(menu_params::MenuMargin + 20, 125, 310, watermark_font, "Names", ShowNames);
+			check_box(menu_params::MenuMargin + 20, 140, 310, watermark_font, "Weapons", ShowWeapons);
 		}
 		break;
 	case 3: // Misc

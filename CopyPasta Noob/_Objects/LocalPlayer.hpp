@@ -1,3 +1,5 @@
+#pragma once
+
 class LocalPlayer {
 public:
 	static int LocalPlayerPtr() {

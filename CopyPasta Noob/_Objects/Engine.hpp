@@ -1,3 +1,5 @@
+#pragma once
+
 class Engine {
 public:
 	static int ClientStatePtr() {

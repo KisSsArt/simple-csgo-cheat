@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Structs/Structs.hpp"
 
 class Entity 
@@ -67,4 +69,16 @@ public:
     int Scoped() {
         return Memory::Read<bool>(Base() + m_bIsScoped);
     }
+
+    int Flags() {
+        return Memory::Read<int>(Base() + m_fFlags);
+    }
+
+    int GetActiveWeapon() {
+        return Memory::Read<int>(Base() + m_hActiveWeapon);
+    }
+
+    /*int GetWeapons() {
+        return Memory::Read<int>(Base() + m_hMyWeapons);
+    }*/
 };

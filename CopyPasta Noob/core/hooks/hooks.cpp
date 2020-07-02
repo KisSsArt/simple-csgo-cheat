@@ -4,6 +4,7 @@
 //#include "../features/misc/engine_prediction.hpp"
 #include "../menu/menu.hpp"
 #include "../../core/features/visuals/hitmarker.hpp"
+#include "../../_D3DDraw/DrawManager.hpp"
 
 hooks::create_move::fn create_move_original = nullptr;
 hooks::paint_traverse::fn paint_traverse_original = nullptr;
@@ -154,6 +155,16 @@ bool __fastcall hooks::create_move::hook(void* ecx, void* edx, int input_sample_
 			misc::allMisc::ClanTagChanger(cmd);
 		});
 	clanTag.detach();
+
+
+	std::thread ESP([cmd]()
+		{
+			visuals::wh::ESP(cmd);
+		});
+	ESP.detach();
+
+	
+	g_Render.InitDeviceObjects(Memory::pDevice());
 
 	//hitmarker.run(cmd);
 	

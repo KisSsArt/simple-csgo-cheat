@@ -114,6 +114,8 @@
     <ClCompile Include="core\main.cpp" />
     <ClCompile Include="source-sdk\math\vector3d.cpp" />
     <ClCompile Include="source-sdk\math\view_matrix.cpp" />
+    <ClCompile Include="_D3DDraw\D3DFont.cpp" />
+    <ClCompile Include="_D3DDraw\DrawManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\features\features.hpp" />
@@ -193,12 +195,15 @@
     <ClInclude Include="source-sdk\structs\vertex_t.hpp" />
     <ClInclude Include="source-sdk\structs\weaponinfo.hpp" />
     <ClInclude Include="_Objects\Client.hpp" />
+    <ClInclude Include="_D3DDraw\D3DFont.hpp" />
+    <ClInclude Include="_D3DDraw\DrawManager.hpp" />
     <ClInclude Include="_Objects\Engine.hpp" />
     <ClInclude Include="_Objects\Entity.hpp" />
     <ClInclude Include="_Objects\LocalPlayer.hpp" />
     <ClInclude Include="_Objects\Objects.hpp" />
     <ClInclude Include="_Objects\Structs\GlowObject.hpp" />
     <ClInclude Include="_Objects\Structs\Structs.hpp" />
+    <ClInclude Include="_Objects\Structs\Weapons.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="config files\Settings.txt" />

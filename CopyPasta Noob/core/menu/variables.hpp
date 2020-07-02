@@ -57,6 +57,10 @@ namespace variables {
 
 #pragma region ESP
 	inline bool ESP_bool = false;
+	inline bool ShowBoxes = false;
+	inline bool ShowNames = false;
+	inline bool ShowWeapons = false;
+
 
 #pragma endregion
 
