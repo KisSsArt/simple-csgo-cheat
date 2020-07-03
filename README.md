@@ -1,5 +1,5 @@
 # CopyPastaNoob's
-CPN is a CSGO Cheat that is written in C++. Based on [alphauc/sdk](https://github.com/alphauc/sdk).
+CPN is a CSGO Cheat that is written in C++. Based on ImGui.
 
 ## Functions
  #### Ready:
