@@ -7,10 +7,6 @@
 *.o
 *.obj
 
-# Precompiled Headers
-*.gch
-*.pch
-
 # Compiled Dynamic libraries
 *.so
 *.dylib
@@ -20,21 +16,14 @@
 *.mod
 *.smod
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
 # Executables
 *.exe
 *.out
 *.app
 
-CopyPasta Noob/.vs/
+.vs/
 
-CopyPasta Noob/_output/
+CPN/Debug/
 
-CopyPasta Noob/output/
+CPN/_output/
 
-CopyPasta Noob/intermediates/
