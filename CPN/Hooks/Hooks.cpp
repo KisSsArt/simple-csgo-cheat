@@ -13,8 +13,8 @@
 #include "../GUI.h"
 #include "../Hacks/ESP.h"
 #include "../Hacks/Misc.h"
-#include "../Hacks/visuals/Glow.h"
-#include "../Hacks/aimbot/TriggerBot.h"
+#include "../Hacks/Glow.h"
+#include "../Hacks/TriggerBot.h"
 #include "../Interfaces.h"
 #include "Memory.h"
 
@@ -70,6 +70,7 @@ static HRESULT D3DAPI present(IDirect3DDevice9* device, const RECT* src, const R
     Misc::drawNoscopeCrosshair(ImGui::GetBackgroundDrawList());
 
     //new
+    //Misc::hitmarker(ImGui::GetBackgroundDrawList());
     Misc::bunny_hop();
     Misc::antiflash();
     Glow::render();
@@ -77,22 +78,7 @@ static HRESULT D3DAPI present(IDirect3DDevice9* device, const RECT* src, const R
     Misc::fovChanger();
     Aim::triggerBot();
 
-    /*std::thread ESPrender(ESP::render);
-    ESPrender.detach();
-
-    std::thread bunny_hop(Misc::bunny_hop);
-    bunny_hop.detach();
-
-    std::thread antiflash(Misc::antiflash);
-    antiflash.detach();
-
-    std::thread Glowrender(Glow::render);
-    Glowrender.detach();
-
-    std::thread radarHack(Misc::radarHack);
-    radarHack.detach();*/
-    //
-
+    
     Misc::purchaseList();
     Misc::drawObserverList();
 

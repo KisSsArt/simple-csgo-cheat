@@ -77,10 +77,10 @@
     <ClCompile Include="Hooks\Hooks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hacks\visuals\Glow.cpp">
+    <ClCompile Include="Hacks\TriggerBot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hacks\aimbot\TriggerBot.cpp">
+    <ClCompile Include="Hacks\Glow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -247,10 +247,10 @@
     <ClInclude Include="_Objects\Structs\Structs.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hacks\visuals\Glow.h">
+    <ClInclude Include="Hacks\TriggerBot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hacks\aimbot\TriggerBot.h">
+    <ClInclude Include="Hacks\Glow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

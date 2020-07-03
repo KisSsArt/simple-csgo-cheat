@@ -173,6 +173,8 @@ void T::drawMiscTab() noexcept
             ImGui::Checkbox("Anti-Flash", &config->antiflash);
             ImGui::Checkbox("Radar Hack", &config->radar_bool);
 
+            //ImGuiCustom::colorPicker("Hitmarker", config->hitMarker);
+
             ImGui::Checkbox("FOV", &config->fovEnable);
             ImGui::SliderFloat("FOV value", &config->FOV, 0, 180);
         }
@@ -292,7 +294,7 @@ void T::drawESPTab() noexcept
         }
     };
 
-    if (ImGui::ListBoxHeader("##list", { 170.0f, 300.0f })) {
+    if (ImGui::ListBoxHeader("##list", { 170.0f, -1 })) { //
         constexpr std::array categories{ "Enemies", "Allies", "Weapons", "Projectiles", "Loot Crates", "Other Entities" };
 
         for (std::size_t i = 0; i < categories.size(); ++i) {
@@ -793,7 +795,7 @@ void T::renderMenu() noexcept
     if (gui->open)
     {
         ImGui::SetNextWindowPos(ImVec2(vecScreenSize.x * 0.5f, vecScreenSize.y * 0.5f), ImGuiCond_Once, ImVec2(0.5f, 0.5f));
-        ImGui::SetNextWindowSize(ImVec2(500, 320), ImGuiCond_Always); //800 500
+        ImGui::SetNextWindowSize(ImVec2(800, 500), ImGuiCond_Always); //500 320
         ImGui::Begin("CPN", &gui->open, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoCollapse);
         {
             ImVec2 vecPos = ImGui::GetCursorScreenPos();
@@ -804,14 +806,14 @@ void T::renderMenu() noexcept
             pDrawList->AddRectFilledMultiColor(ImVec2(vecPos.x + flWindowWidth - flWindowWidth / 3.f - 8.f, vecPos.y - 6.f), ImVec2(vecPos.x + flWindowWidth - 8.f, vecPos.y - 8.f), IM_COL32(110, 100, 130, 255), IM_COL32(75, 50, 105, 255), IM_COL32(75, 50, 105, 255), IM_COL32(110, 100, 130, 255));
 
             // add tabs
-            static std::array<CTab, 6U> const arrTabs =
+            static std::array<CTab, 5U> const arrTabs =
             {
                 CTab{ "Aimbot", &drawAimbotTab },
                 CTab{ "Glow", &drawGlowTab },
                 CTab{ "ESP", &drawESPTab },
                 CTab{ "Misc", &drawMiscTab },
-                CTab{ "Config", &drawConfigTab },
-                CTab{ "Style", &drawStyleTab }
+                CTab{ "Config", &drawConfigTab }
+                /*CTab{ "Style", &drawStyleTab }*/
             };
 
             Render<arrTabs.size()>("main_tabs", arrTabs, &iMainTab, style.Colors[ImGuiCol_TabActive]);

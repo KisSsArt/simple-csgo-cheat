@@ -125,11 +125,11 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="EventListener\EventListener.cpp" />
     <ClCompile Include="GameData\GameData.cpp" />
-    <ClCompile Include="Hacks\aimbot\TriggerBot.cpp" />
+    <ClCompile Include="Hacks\TriggerBot.cpp" />
     <ClCompile Include="Hacks\ESP.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Hacks\Misc.cpp" />
-    <ClCompile Include="Hacks\visuals\Glow.cpp" />
+    <ClCompile Include="Hacks\Glow.cpp" />
     <ClCompile Include="Helpers\Helpers.cpp" />
     <ClCompile Include="Hooks\Hooks.cpp" />
     <ClCompile Include="ImGuiCustom\ImGuiCustom.cpp" />
@@ -147,8 +147,8 @@
     <ClInclude Include="ConfigStructs.h" />
     <ClInclude Include="EventListener\EventListener.h" />
     <ClInclude Include="GameData\GameData.h" />
-    <ClInclude Include="Hacks\aimbot\TriggerBot.h" />
-    <ClInclude Include="Hacks\visuals\Glow.h" />
+    <ClInclude Include="Hacks\TriggerBot.h" />
+    <ClInclude Include="Hacks\Glow.h" />
     <ClInclude Include="hazedumper.hpp" />
     <ClInclude Include="Hacks\ESP.h" />
     <ClInclude Include="fnv.h" />

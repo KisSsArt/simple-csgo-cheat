@@ -63,6 +63,9 @@ public:
     bool radar_bool = false;
 
 
+    ColorToggleThickness hitMarker;
+
+
     PurchaseList purchaseList;
     ObserverList observerList;
 

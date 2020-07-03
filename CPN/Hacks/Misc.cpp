@@ -333,4 +333,70 @@ void Misc::fovChanger() noexcept
         }
     }
 }
+
+static void drawHitmarker(ImDrawList* drawList, const ImVec2& pos, ImU32 color, float thickness) noexcept
+{
+    drawList->Flags &= ~ImDrawListFlags_AntiAliasedLines;
+
+    drawList->AddLine(ImVec2{ pos.x + 6, pos.y + 6 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x + 3, pos.y + 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness);
+    drawList->AddLine(ImVec2{ pos.x - 6, pos.y + 6 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x - 3, pos.y + 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness);
+
+    drawList->AddLine(ImVec2{ pos.x + 6, pos.y - 6 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x + 3, pos.y - 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness);
+    drawList->AddLine(ImVec2{ pos.x - 6, pos.y - 6 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x - 3, pos.y - 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness);
+
+    drawList->AddLine({ pos.x + 6, pos.y + 6 }, { pos.x + 3, pos.y + 3 }, color, thickness);
+    drawList->AddLine({ pos.x - 6, pos.y + 6 }, { pos.x - 3, pos.y + 3 }, color, thickness);
+
+    drawList->AddLine({ pos.x + 6, pos.y - 6 }, { pos.x + 3, pos.y - 3 }, color, thickness);
+    drawList->AddLine({ pos.x - 6, pos.y - 6 }, { pos.x - 3, pos.y - 3 }, color, thickness);
+
+    drawList->Flags |= ImDrawListFlags_AntiAliasedLines;
+
+
+   /* render::draw_line(width_mid + 6, height_mid + 6, width_mid + 3, height_mid + 3, color(255, 255, 255, alpha));
+    render::draw_line(width_mid - 6, height_mid + 6, width_mid - 3, height_mid + 3, color(255, 255, 255, alpha));
+    render::draw_line(width_mid + 6, height_mid - 6, width_mid + 3, height_mid - 3, color(255, 255, 255, alpha));
+    render::draw_line(width_mid - 6, height_mid - 6, width_mid - 3, height_mid - 3, color(255, 255, 255, alpha));*/
+}
+
+//int hitmarker_time = 0;
+//void Misc::hitmarker(ImDrawList* drawList, GameEvent* event) noexcept
+//{
+//    if (!config->hitMarker.enabled && Engine::isInGame) {
+//        return;
+//    }
 //
+//    //auto attacker = interfaces->entityList->getEntity(interfaces->engine->getPlayerForUserId(event->getInt("player_hurt")));
+//    int nUserID = event->getInt("attacker");
+//
+//    if (!nUserID) {
+//        return;
+//    }
+//
+//    if (interfaces->engine->getPlayerForUserId(nUserID) == LocalPlayerOld::LocalPlayerPtr()) 
+//    {
+//        hitmarker_time = 255;
+//    }
+//
+//    //auto attacker = interfaces->entityList->getEntity(interfaces->engine->getPlayerForUserId(event->getInt("player_hurt")));
+//    
+//    /*if (!attacker) {
+//        return;
+//    }*/
+//    
+//
+//    auto pos = ImGui::GetIO().DisplaySize;
+//
+//    pos.x *= 0.5;
+//    pos.y *= 0.5;
+//
+//    if (hitmarker_time > 0) {
+//        float alpha = hitmarker_time;
+//
+//        drawHitmarker(drawList, pos, Helpers::calculateColor(config->hitMarker), alpha);
+//
+//        hitmarker_time -= 2;
+//    }
+//
+//}
+////
