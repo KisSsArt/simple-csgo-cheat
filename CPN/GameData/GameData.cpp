@@ -1,24 +1,24 @@
 #include <list>
 #include <mutex>
 
-#include "Config.h"
-#include "fnv.h"
+#include "../Config/Config.h"
+#include "../fnv.h"
 #include "GameData.h"
-#include "Interfaces.h"
-#include "Memory.h"
+#include "../Interfaces.h"
+#include "../Memory.h"
 
-#include "SDK/ClientClass.h"
-#include "SDK/ClientTools.h"
-#include "SDK/Engine.h"
-#include "SDK/Entity.h"
-#include "SDK/EntityList.h"
-#include "SDK/GlobalVars.h"
-#include "SDK/Localize.h"
-#include "SDK/LocalPlayer.h"
-#include "SDK/ModelInfo.h"
-#include "SDK/Sound.h"
-#include "SDK/WeaponId.h"
-#include "SDK/WeaponInfo.h"
+#include "../SDK/ClientClass.h"
+#include "../SDK/ClientTools.h"
+#include "../SDK/Engine.h"
+#include "../SDK/Entity.h"
+#include "../SDK/EntityList.h"
+#include "../SDK/GlobalVars.h"
+#include "../SDK/Localize.h"
+#include "../SDK/LocalPlayer.h"
+#include "../SDK/ModelInfo.h"
+#include "../SDK/Sound.h"
+#include "../SDK/WeaponId.h"
+#include "../SDK/WeaponInfo.h"
 
 static Matrix4x4 viewMatrix;
 static LocalPlayerData localPlayerData;

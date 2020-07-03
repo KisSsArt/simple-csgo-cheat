@@ -2,9 +2,9 @@
 
 #include "imgui/imgui.h"
 
-#include "../GOESP/Config/Config.h"
-#include "../GOESP/Hooks/Hooks.h"
-#include "../GOESP/ImGuiCustom/ImGuiCustom.h"
+#include "Config/Config.h"
+#include "Hooks/Hooks.h"
+#include "ImGuiCustom/ImGuiCustom.h"
 
 #include <array>
 #include <vector>

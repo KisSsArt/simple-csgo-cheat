@@ -1,12 +1,12 @@
 #include <cmath>
 #include <tuple>
 
-#include "imgui/imgui.h"
+#include "../imgui/imgui.h"
 
-#include "ConfigStructs.h"
+#include "../ConfigStructs.h"
 #include "Helpers.h"
-#include "Memory.h"
-#include "SDK/GlobalVars.h"
+#include "../Memory.h"
+#include "../SDK/GlobalVars.h"
 
 static auto rainbowColor(float time, float speed, float alpha) noexcept
 {

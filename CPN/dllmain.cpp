@@ -1,6 +1,6 @@
 #include <Windows.h>
 
-#include "../GOESP/Hooks/Hooks.h"
+#include "Hooks/Hooks.h"
 
 extern "C" BOOL WINAPI _CRT_INIT(HMODULE module, DWORD reason, LPVOID reserved);
 
