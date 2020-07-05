@@ -12,7 +12,8 @@ namespace Misc
     void drawObserverList() noexcept;
     void drawNoscopeCrosshair(ImDrawList* drawList) noexcept;
     //new
-    void hitmarker(GameEvent* event = nullptr) noexcept;
+    void Hitmarker(GameEvent* event = nullptr) noexcept;
+    void HitmarkerRender() noexcept;
     void radarHack() noexcept;
     void antiflash() noexcept;
     void bunny_hop() noexcept;

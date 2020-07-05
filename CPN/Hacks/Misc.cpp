@@ -358,53 +358,27 @@ static void drawHitmarker(ImDrawList* drawList, const ImVec2& pos, ImU32 color, 
 }
 
 
-void Misc::hitmarker(GameEvent* event) noexcept
+void Misc::Hitmarker(GameEvent* event) noexcept
 {
     if (!config->hitMarker.enabled || !interfaces->engine->isInGame()) {
         return;
     }
 
-    //auto attacker = interfaces->entityList->getEntity(interfaces->engine->getPlayerForUserId(event->getInt("player_hurt")));
-    //
+    int attacker = interfaces->engine->getPlayerForUserId(event->getInt("attacker"));
 
-    /*if (!nUserID) {
-        return;
-    }*/
-
-    /*if (interfaces->engine->getPlayerForUserId(nUserID) == LocalPlayerOld::LocalPlayerPtr()) 
-    {
-        hitmarker_time = 255;
-    }*/
-
-    //auto attacker = interfaces->entityList->getEntity(interfaces->engine->getPlayerForUserId(event->getInt("player_hurt")));
-    
-    /*if (!attacker) {
-        return;
-    }*/
-
-    /*if (!strcmp(event->getName(), "player_hurt")) {
-        int attacker = event->getInt("attacker");
-        if (interfaces->engine->getPlayerForUserId(attacker) == localPlayer->index()) {
-            config->hitmarker_time = 255;
-        }
-    }*/
-
-    //const auto& localPlayerData = GameData::local();
-
-    int attacker = (event->getInt("attacker"));
-
-    if (EntityOld(attacker).Base() + 1 == LocalPlayerOld::LocalPlayerPtr()) {
-        std::cout << "result: true" << std::endl;
+    if (attacker == 1) {
         config->hitmarker_time = 255;
     }
+}
 
-    std::cout << "userId: " << interfaces->engine->getPlayerForUserId(event->getInt("attacker")) << std::endl;
-    std::cout << "attacker: " << event->getInt("attacker") << std::endl;
-    
-    
+void Misc::HitmarkerRender() noexcept
+{
+    if (!config->hitMarker.enabled || !interfaces->engine->isInGame()) {
+        return;
+    }
 
     if (config->hitmarker_time > 0) {
-        
+
         config->hitMarker.color[3] = config->hitmarker_time;
 
         drawHitmarker(ImGui::GetBackgroundDrawList(), ImGui::GetIO().DisplaySize / 2, Helpers::calculateColor(config->hitMarker), config->hitMarker.thickness);
@@ -412,17 +386,3 @@ void Misc::hitmarker(GameEvent* event) noexcept
         config->hitmarker_time -= 2;
     }
 }
-//
-
-
-//void on_fire_event(IGameEvent* event)
-//{
-//   
-//        int attacker = event->GetInt("attacker");
-//        if (g_pEngine->GetPlayerForUserID(attacker) == g_pEngine->GetLocalPlayer()) {
-//            //g_pSurface->PlaySound doesnt work for some reason
-//            PlaySoundA(_soundFileName, NULL, SND_ASYNC);
-//            _flHurtTime = g_pGlobalVars->curtime;
-//        }
-//    
-//}
