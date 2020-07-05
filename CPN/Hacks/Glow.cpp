@@ -80,4 +80,7 @@ void Glow::render() noexcept {
             }
         }
     }
+    else {
+        return;
+    }
 };

@@ -63,6 +63,7 @@ public:
     bool radar_bool = false;
 
 
+    int hitmarker_time = 0;
     ColorToggleThickness hitMarker;
 
 

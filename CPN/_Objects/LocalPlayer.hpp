@@ -40,6 +40,10 @@ public:
 		return MemoryOld::Read<int>(LocalPlayerPtr() + dwSetClanTag);
 	}
 
+	/*static int Attacker() {
+		return MemoryOld::Read<int>(LocalPlayerPtr() + );
+	}*/
+
 	static bool checkLocalVal() {
 		Vec3 val = MemoryOld::Read<Vec3>(LocalPlayerPtr() + m_vecVelocity);
 		int vel = val.x + val.y + val.z;

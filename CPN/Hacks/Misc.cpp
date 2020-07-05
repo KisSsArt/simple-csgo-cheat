@@ -27,10 +27,12 @@
 #include <unordered_map>
 #include <vector>
 #include "../_Objects/Objects.hpp"
+#include <iostream>
+//#include <iostream>
 
 void Misc::drawReloadProgress(ImDrawList* drawList) noexcept
 {
-    if (!config->reloadProgress.enabled)
+    if (!config->reloadProgress.enabled || !interfaces->engine->isInGame())
         return;
 
     GameData::Lock lock;
@@ -80,7 +82,7 @@ static void drawCrosshair(ImDrawList* drawList, const ImVec2& pos, ImU32 color, 
 
 void Misc::drawRecoilCrosshair(ImDrawList* drawList) noexcept
 {
-    if (!config->recoilCrosshair.enabled)
+    if (!config->recoilCrosshair.enabled || !interfaces->engine->isInGame())
         return;
 
     GameData::Lock lock;
@@ -156,7 +158,7 @@ void Misc::purchaseList(GameEvent* event) noexcept
             break;
         }
     } else {
-        if (!config->purchaseList.enabled)
+        if (!config->purchaseList.enabled || !interfaces->engine->isInGame())
             return;
 
         static const auto mp_buytime = interfaces->cvar->findVar("mp_buytime");
@@ -208,7 +210,7 @@ void Misc::purchaseList(GameEvent* event) noexcept
 
 void Misc::drawObserverList() noexcept
 {
-    if (!config->observerList.enabled)
+    if (!config->observerList.enabled || !interfaces->engine->isInGame())
         return;
 
     GameData::Lock lock;
@@ -246,9 +248,10 @@ void Misc::drawObserverList() noexcept
     ImGui::End();
 }
 
+//
 void Misc::drawNoscopeCrosshair(ImDrawList* drawList) noexcept
 {
-    if (!config->noscopeCrosshair.enabled)
+    if (!config->noscopeCrosshair.enabled || !interfaces->engine->isInGame())
         return;
 
     GameData::Lock lock;
@@ -262,6 +265,7 @@ void Misc::drawNoscopeCrosshair(ImDrawList* drawList) noexcept
 
     drawCrosshair(drawList, ImGui::GetIO().DisplaySize / 2, Helpers::calculateColor(config->noscopeCrosshair), config->noscopeCrosshair.thickness);
 }
+//
 
 //new
 void Misc::antiflash() noexcept
@@ -275,7 +279,7 @@ void Misc::antiflash() noexcept
 
 void Misc::bunny_hop() noexcept
 {
-    if (!config->bunnyhop) {
+    if (!config->bunnyhop || !interfaces->engine->isInGame()) {
         return;
     }
 
@@ -290,7 +294,7 @@ void Misc::bunny_hop() noexcept
 
 void Misc::radarHack() noexcept
 {
-    if (!config->radar_bool) {
+    if (!config->radar_bool || !interfaces->engine->isInGame()) {
         return;
     }
 
@@ -318,7 +322,7 @@ void Misc::radarHack() noexcept
 
 void Misc::fovChanger() noexcept
 {
-    if (!config->fovEnable) {
+    if (!config->fovEnable || !interfaces->engine->isInGame()) {
         return;
     }
 
@@ -338,65 +342,87 @@ static void drawHitmarker(ImDrawList* drawList, const ImVec2& pos, ImU32 color, 
 {
     drawList->Flags &= ~ImDrawListFlags_AntiAliasedLines;
 
-    drawList->AddLine(ImVec2{ pos.x + 6, pos.y + 6 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x + 3, pos.y + 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness);
-    drawList->AddLine(ImVec2{ pos.x - 6, pos.y + 6 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x - 3, pos.y + 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness);
+    drawList->AddLine(ImVec2{ pos.x + 8, pos.y + 8 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x + 3, pos.y + 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness + 0.3f);
+    drawList->AddLine(ImVec2{ pos.x - 8, pos.y + 8 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x - 3, pos.y + 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness + 0.3f);
 
-    drawList->AddLine(ImVec2{ pos.x + 6, pos.y - 6 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x + 3, pos.y - 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness);
-    drawList->AddLine(ImVec2{ pos.x - 6, pos.y - 6 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x - 3, pos.y - 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness);
+    drawList->AddLine(ImVec2{ pos.x + 8, pos.y - 8 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x + 3, pos.y - 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness + 0.3f);
+    drawList->AddLine(ImVec2{ pos.x - 8, pos.y - 8 } + ImVec2{ 1.0f, 1.0f }, ImVec2{ pos.x - 3, pos.y - 3 } + ImVec2{ 1.0f, 1.0f }, color & IM_COL32_A_MASK, thickness + 0.3f);
 
-    drawList->AddLine({ pos.x + 6, pos.y + 6 }, { pos.x + 3, pos.y + 3 }, color, thickness);
-    drawList->AddLine({ pos.x - 6, pos.y + 6 }, { pos.x - 3, pos.y + 3 }, color, thickness);
+    drawList->AddLine({ pos.x + 8, pos.y + 8 }, { pos.x + 3, pos.y + 3 }, color, thickness + 0.3f);
+    drawList->AddLine({ pos.x - 8, pos.y + 8 }, { pos.x - 3, pos.y + 3 }, color, thickness + 0.3f);
 
-    drawList->AddLine({ pos.x + 6, pos.y - 6 }, { pos.x + 3, pos.y - 3 }, color, thickness);
-    drawList->AddLine({ pos.x - 6, pos.y - 6 }, { pos.x - 3, pos.y - 3 }, color, thickness);
+    drawList->AddLine({ pos.x + 8, pos.y - 8 }, { pos.x + 3, pos.y - 3 }, color, thickness + 0.3f);
+    drawList->AddLine({ pos.x - 8, pos.y - 8 }, { pos.x - 3, pos.y - 3 }, color, thickness + 0.3f);
 
     drawList->Flags |= ImDrawListFlags_AntiAliasedLines;
-
-
-   /* render::draw_line(width_mid + 6, height_mid + 6, width_mid + 3, height_mid + 3, color(255, 255, 255, alpha));
-    render::draw_line(width_mid - 6, height_mid + 6, width_mid - 3, height_mid + 3, color(255, 255, 255, alpha));
-    render::draw_line(width_mid + 6, height_mid - 6, width_mid + 3, height_mid - 3, color(255, 255, 255, alpha));
-    render::draw_line(width_mid - 6, height_mid - 6, width_mid - 3, height_mid - 3, color(255, 255, 255, alpha));*/
 }
 
-//int hitmarker_time = 0;
-//void Misc::hitmarker(ImDrawList* drawList, GameEvent* event) noexcept
+
+void Misc::hitmarker(GameEvent* event) noexcept
+{
+    if (!config->hitMarker.enabled || !interfaces->engine->isInGame()) {
+        return;
+    }
+
+    //auto attacker = interfaces->entityList->getEntity(interfaces->engine->getPlayerForUserId(event->getInt("player_hurt")));
+    //
+
+    /*if (!nUserID) {
+        return;
+    }*/
+
+    /*if (interfaces->engine->getPlayerForUserId(nUserID) == LocalPlayerOld::LocalPlayerPtr()) 
+    {
+        hitmarker_time = 255;
+    }*/
+
+    //auto attacker = interfaces->entityList->getEntity(interfaces->engine->getPlayerForUserId(event->getInt("player_hurt")));
+    
+    /*if (!attacker) {
+        return;
+    }*/
+
+    /*if (!strcmp(event->getName(), "player_hurt")) {
+        int attacker = event->getInt("attacker");
+        if (interfaces->engine->getPlayerForUserId(attacker) == localPlayer->index()) {
+            config->hitmarker_time = 255;
+        }
+    }*/
+
+    //const auto& localPlayerData = GameData::local();
+
+    int attacker = (event->getInt("attacker"));
+
+    if (EntityOld(attacker).Base() + 1 == LocalPlayerOld::LocalPlayerPtr()) {
+        std::cout << "result: true" << std::endl;
+        config->hitmarker_time = 255;
+    }
+
+    std::cout << "userId: " << interfaces->engine->getPlayerForUserId(event->getInt("attacker")) << std::endl;
+    std::cout << "attacker: " << event->getInt("attacker") << std::endl;
+    
+    
+
+    if (config->hitmarker_time > 0) {
+        
+        config->hitMarker.color[3] = config->hitmarker_time;
+
+        drawHitmarker(ImGui::GetBackgroundDrawList(), ImGui::GetIO().DisplaySize / 2, Helpers::calculateColor(config->hitMarker), config->hitMarker.thickness);
+
+        config->hitmarker_time -= 2;
+    }
+}
+//
+
+
+//void on_fire_event(IGameEvent* event)
 //{
-//    if (!config->hitMarker.enabled && Engine::isInGame) {
-//        return;
-//    }
-//
-//    //auto attacker = interfaces->entityList->getEntity(interfaces->engine->getPlayerForUserId(event->getInt("player_hurt")));
-//    int nUserID = event->getInt("attacker");
-//
-//    if (!nUserID) {
-//        return;
-//    }
-//
-//    if (interfaces->engine->getPlayerForUserId(nUserID) == LocalPlayerOld::LocalPlayerPtr()) 
-//    {
-//        hitmarker_time = 255;
-//    }
-//
-//    //auto attacker = interfaces->entityList->getEntity(interfaces->engine->getPlayerForUserId(event->getInt("player_hurt")));
+//   
+//        int attacker = event->GetInt("attacker");
+//        if (g_pEngine->GetPlayerForUserID(attacker) == g_pEngine->GetLocalPlayer()) {
+//            //g_pSurface->PlaySound doesnt work for some reason
+//            PlaySoundA(_soundFileName, NULL, SND_ASYNC);
+//            _flHurtTime = g_pGlobalVars->curtime;
+//        }
 //    
-//    /*if (!attacker) {
-//        return;
-//    }*/
-//    
-//
-//    auto pos = ImGui::GetIO().DisplaySize;
-//
-//    pos.x *= 0.5;
-//    pos.y *= 0.5;
-//
-//    if (hitmarker_time > 0) {
-//        float alpha = hitmarker_time;
-//
-//        drawHitmarker(drawList, pos, Helpers::calculateColor(config->hitMarker), alpha);
-//
-//        hitmarker_time -= 2;
-//    }
-//
 //}
-////

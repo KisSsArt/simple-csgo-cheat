@@ -7,7 +7,7 @@
 
 void Aim::triggerBot() noexcept
 {
-    if (!config->trigger_bool) {
+    if (!config->trigger_bool || !EngineOld::InGame()) {
         return;
     }
     

@@ -70,7 +70,6 @@ static HRESULT D3DAPI present(IDirect3DDevice9* device, const RECT* src, const R
     Misc::drawNoscopeCrosshair(ImGui::GetBackgroundDrawList());
 
     //new
-    //Misc::hitmarker(ImGui::GetBackgroundDrawList());
     Misc::bunny_hop();
     Misc::antiflash();
     Glow::render();
@@ -78,7 +77,6 @@ static HRESULT D3DAPI present(IDirect3DDevice9* device, const RECT* src, const R
     Misc::fovChanger();
     Aim::triggerBot();
 
-    
     Misc::purchaseList();
     Misc::drawObserverList();
 
@@ -129,10 +127,6 @@ Hooks::Hooks(HMODULE module) noexcept
 
 void Hooks::install() noexcept
 {
-#ifdef _DEBUG
-    AllocConsole();
-    SetConsoleTitleA("CPN Console");
-#endif
     std::cout << "[state] Initialization..." << std::endl;
     state = State::Installing;
 
