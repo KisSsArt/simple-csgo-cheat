@@ -4,6 +4,10 @@ public:
 		return MemoryOld::Read<int>(MemoryOld::clientBase() + dwLocalPlayer);
 	}
 
+	static int Index() {
+		return MemoryOld::Read<int>(LocalPlayerPtr() + 0x64);
+	}
+
 	static int Team() {
 		return MemoryOld::Read<int>(LocalPlayerPtr() + m_iTeamNum);
 	}

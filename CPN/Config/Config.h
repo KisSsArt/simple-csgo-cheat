@@ -63,7 +63,12 @@ public:
     bool radar_bool = false;
 
 
+    bool hitSound = false;
+    bool killSound = false;
+
     int hitmarker_time = 0;
+    int killmarker_time = 0;
+    ColorToggleThickness killMarker;
     ColorToggleThickness hitMarker;
 
 

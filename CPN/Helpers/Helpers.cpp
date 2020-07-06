@@ -7,6 +7,7 @@
 #include "Helpers.h"
 #include "../Memory.h"
 #include "../SDK/GlobalVars.h"
+#include "../_Objects/Structs/Structs.hpp"
 
 static auto rainbowColor(float time, float speed, float alpha) noexcept
 {
@@ -19,4 +20,9 @@ static auto rainbowColor(float time, float speed, float alpha) noexcept
 unsigned int Helpers::calculateColor(const Color& color) noexcept
 {
     return ImGui::ColorConvertFloat4ToU32(color.rainbow ? rainbowColor(memory->globalVars->realtime, color.rainbowSpeed, color.color[3]) : color.color);
+}
+
+std::array<float, 4> Helpers::calculateColorArr(const Color& color) noexcept
+{
+    return color.rainbow ? rainbowColor(memory->globalVars->realtime, color.rainbowSpeed, color.color[3]) : color.color;
 }

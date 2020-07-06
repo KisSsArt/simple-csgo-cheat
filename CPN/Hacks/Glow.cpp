@@ -1,8 +1,10 @@
 #include "../_Objects/Objects.hpp"
 
 #include <thread>
+#include <array>
 #include "Glow.h"
 #include "../Config/Config.h"
+#include "../Helpers/Helpers.h"
 
 
 
@@ -23,6 +25,7 @@ void Glow::render() noexcept {
                 // Teammate
                 if (config->GlowAlies.enabled)
                 {
+                    std::array<float, 4> TeamColor = Helpers::calculateColorArr(config->GlowAlies);
                     GlowObjectDefinition glowObject = EntityOld(i).GlowObject();
 
                     if (config->GlowHealth_Team)
@@ -53,6 +56,7 @@ void Glow::render() noexcept {
                 // Enemy
                 if (config->GlowEnemy.enabled)
                 {
+                    std::array<float, 4> TeamColor = Helpers::calculateColorArr(config->GlowEnemy);
                     GlowObjectDefinition glowObject = EntityOld(i).GlowObject();
 
                     if (config->GlowHealth_Enemy)

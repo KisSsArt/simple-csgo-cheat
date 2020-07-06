@@ -45,4 +45,5 @@ public:
     VIRTUAL_METHOD(int, getPlayerForUserId, 9, (int userId), (this, userId))
     VIRTUAL_METHOD(bool, isInGame, 26, (), (this))
     VIRTUAL_METHOD(const Matrix4x4&, worldToScreenMatrix, 37, (), (this))
+    VIRTUAL_METHOD(void, clientCmdUnrestricted, 114, (const char* cmd), (this, cmd, false))
 };

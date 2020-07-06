@@ -77,6 +77,7 @@ static HRESULT D3DAPI present(IDirect3DDevice9* device, const RECT* src, const R
     Misc::fovChanger();
     Aim::triggerBot();
     Misc::HitmarkerRender();
+    Misc::KillmarkerRender();
 
     Misc::purchaseList();
     Misc::drawObserverList();

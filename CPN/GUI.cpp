@@ -256,7 +256,17 @@ void T::drawMiscTab() noexcept
             ImGui::Checkbox("Anti-Flash", &config->antiflash);
             ImGui::Checkbox("Radar Hack", &config->radar_bool);
 
-            ImGuiCustom::colorPicker("Hitmarker", config->hitMarker);
+            ImGui::Separator();
+
+            ImGuiCustom::colorPicker("HitMarker", config->hitMarker);
+            ImGui::Checkbox("Hit Sound", &config->hitSound);
+
+            ImGui::Separator();
+
+            ImGuiCustom::colorPicker("KillMarker", config->killMarker);
+            ImGui::Checkbox("Kill Sound", &config->killSound);
+
+            ImGui::Separator();
 
             ImGui::Checkbox("FOV", &config->fovEnable);
             ImGui::SliderFloat("FOV value", &config->FOV, 0, 180);

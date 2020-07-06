@@ -338,7 +338,7 @@ void Misc::fovChanger() noexcept
     }
 }
 
-static void drawHitmarker(ImDrawList* drawList, const ImVec2& pos, ImU32 color, float thickness) noexcept
+static void drawMarker(ImDrawList* drawList, const ImVec2& pos, ImU32 color, float thickness) noexcept
 {
     drawList->Flags &= ~ImDrawListFlags_AntiAliasedLines;
 
@@ -358,16 +358,43 @@ static void drawHitmarker(ImDrawList* drawList, const ImVec2& pos, ImU32 color, 
 }
 
 
-void Misc::Hitmarker(GameEvent* event) noexcept
+bool KillShot = false;
+
+void Misc::Killmarker(GameEvent* event) noexcept
 {
-    if (!config->hitMarker.enabled || !interfaces->engine->isInGame()) {
+    if (!config->killMarker.enabled || !interfaces->engine->isInGame() || !config->killSound) {
         return;
     }
 
+    KillShot = true;
+
     int attacker = interfaces->engine->getPlayerForUserId(event->getInt("attacker"));
 
-    if (attacker == 1) {
-        config->hitmarker_time = 255;
+    if (attacker == LocalPlayerOld::Index()) {
+        if (config->killMarker.enabled)
+            config->killmarker_time = 255;
+        if (config->killSound)
+            interfaces->engine->clientCmdUnrestricted("play /player/orch_hit_csharp_short.wav");
+    }
+}
+
+void Misc::Hitmarker(GameEvent* event) noexcept
+{
+    if (!config->hitMarker.enabled || !interfaces->engine->isInGame() || !config->hitSound) {
+        return;
+    }
+
+    if (!KillShot) {
+
+        int attacker = interfaces->engine->getPlayerForUserId(event->getInt("attacker"));
+
+        if (attacker == LocalPlayerOld::Index()) {
+            if (config->hitMarker.enabled)
+                config->hitmarker_time = 255;
+            if (config->hitSound) {
+                interfaces->engine->clientCmdUnrestricted("play buttons/arena_switch_press_02");
+            }
+        }
     }
 }
 
@@ -379,10 +406,94 @@ void Misc::HitmarkerRender() noexcept
 
     if (config->hitmarker_time > 0) {
 
-        config->hitMarker.color[3] = config->hitmarker_time;
+        config->hitMarker.color[3] = config->hitmarker_time / 255.f;
 
-        drawHitmarker(ImGui::GetBackgroundDrawList(), ImGui::GetIO().DisplaySize / 2, Helpers::calculateColor(config->hitMarker), config->hitMarker.thickness);
+        drawMarker(ImGui::GetBackgroundDrawList(), ImGui::GetIO().DisplaySize / 2, Helpers::calculateColor(config->hitMarker), config->hitMarker.thickness);
 
-        config->hitmarker_time -= 2;
+        config->hitmarker_time -= 3;
     }
 }
+
+
+void Misc::KillmarkerRender() noexcept
+{
+    if (!config->killMarker.enabled || !interfaces->engine->isInGame()) {
+        return;
+    }
+
+    if (config->killmarker_time > 0) {
+
+        config->killMarker.color[3] = config->killmarker_time / 255.f;
+
+        drawMarker(ImGui::GetBackgroundDrawList(), ImGui::GetIO().DisplaySize / 2, Helpers::calculateColor(config->killMarker), config->killMarker.thickness);
+
+        config->killmarker_time -= 3;
+    }
+    else {
+        KillShot = false;
+	}
+}
+
+
+
+
+
+
+//void Misc::Hitmarker(GameEvent* event) noexcept
+//{
+//    if (!config->hitMarker.enabled || !interfaces->engine->isInGame()) {
+//        return;
+//    }
+//
+//    int attacker = interfaces->engine->getPlayerForUserId(event->getInt("attacker"));
+//
+//    if (attacker == LocalPlayerOld::Index()) {
+//        config->hitmarker_time = 255;
+//        interfaces->engine->clientCmdUnrestricted("play buttons/arena_switch_press_02");
+//    }
+//}
+//
+//void Misc::HitmarkerRender() noexcept
+//{
+//    if (!config->hitMarker.enabled || !interfaces->engine->isInGame()) {
+//        return;
+//    }
+//
+//    if (config->hitmarker_time > 0) {
+//
+//        config->hitMarker.color[3] = config->hitmarker_time / 255.f;
+//
+//        drawMarker(ImGui::GetBackgroundDrawList(), ImGui::GetIO().DisplaySize / 2, Helpers::calculateColor(config->hitMarker), config->hitMarker.thickness);
+//
+//        config->hitmarker_time -= 3;
+//    }
+//}
+//
+//void Misc::Killmarker(GameEvent* event) noexcept
+//{
+//    if (!config->killMarker.enabled || !interfaces->engine->isInGame()) {
+//        return;
+//    }
+//
+//    int attacker = interfaces->engine->getPlayerForUserId(event->getInt("attacker"));
+//
+//    if (attacker == LocalPlayerOld::Index()) {
+//        config->killmarker_time = 255;
+//    }
+//}
+//
+//void Misc::KillmarkerRender() noexcept
+//{
+//    if (!config->killMarker.enabled || !interfaces->engine->isInGame()) {
+//        return;
+//    }
+//
+//    if (config->killmarker_time > 0) {
+//
+//        config->killMarker.color[3] = config->killmarker_time / 255.f;
+//
+//        drawMarker(ImGui::GetBackgroundDrawList(), ImGui::GetIO().DisplaySize / 2, Helpers::calculateColor(config->killMarker), config->killMarker.thickness);
+//
+//        config->killmarker_time -= 3;
+//    }
+//}
