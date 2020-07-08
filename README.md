@@ -19,6 +19,9 @@ CPN is a CSGO Cheat that is written in C++. Based on [ImGui](https://github.com/
   - [X] Observer List
   - [X] Purchase List
   - [X] Hitmarker
+  - [X] Hitsound
+  - [X] Killmarker
+  - [X] Killsound
  
  #### Soon:
   - [ ] Personal injector
