@@ -125,6 +125,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="EventListener\EventListener.cpp" />
     <ClCompile Include="GameData\GameData.cpp" />
+    <ClCompile Include="Hacks\Antiaim.cpp" />
     <ClCompile Include="Hacks\TriggerBot.cpp" />
     <ClCompile Include="Hacks\ESP.cpp" />
     <ClCompile Include="GUI.cpp" />
@@ -140,6 +141,7 @@
     <ClCompile Include="imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="Memory.cpp" />
+    <ClCompile Include="SDK\AnimState.h" />
     <ClCompile Include="SDK\Entity.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +149,7 @@
     <ClInclude Include="ConfigStructs.h" />
     <ClInclude Include="EventListener\EventListener.h" />
     <ClInclude Include="GameData\GameData.h" />
+    <ClInclude Include="Hacks\Antiaim.h" />
     <ClInclude Include="Hacks\TriggerBot.h" />
     <ClInclude Include="Hacks\Glow.h" />
     <ClInclude Include="hazedumper.hpp" />
@@ -186,6 +189,7 @@
     <ClInclude Include="SDK\Matrix3x4.h" />
     <ClInclude Include="SDK\ModelInfo.h" />
     <ClInclude Include="SDK\Pad.h" />
+    <ClInclude Include="SDK\UserCmd.h" />
     <ClInclude Include="SDK\VirtualMethod.h" />
     <ClInclude Include="SDK\Vector.h" />
     <ClInclude Include="SDK\WeaponInfo.h" />

@@ -8,6 +8,7 @@ private:
     int index;
 
 public:
+
     EntityOld(int Index)
     {
         index = Index;

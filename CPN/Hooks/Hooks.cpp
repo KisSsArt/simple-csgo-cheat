@@ -12,12 +12,14 @@
 #include "../GameData/GameData.h"
 #include "../GUI.h"
 #include "../Hacks/ESP.h"
+#include "../Hacks/Antiaim.h"
 #include "../Hacks/Misc.h"
 #include "../Hacks/Glow.h"
 #include "../Hacks/TriggerBot.h"
 #include "../Interfaces.h"
 #include "Memory.h"
 
+#include "../SDK/UserCmd.h"
 #include "../SDK/Engine.h"
 #include "../SDK/InputSystem.h"
 #include "../SDK/GlobalVars.h"
@@ -51,7 +53,7 @@ static HRESULT D3DAPI reset(IDirect3DDevice9* device, D3DPRESENT_PARAMETERS* par
     return hooks->reset(device, params);
 }
 
-static HRESULT D3DAPI present(IDirect3DDevice9* device, const RECT* src, const RECT* dest, HWND windowOverride, const RGNDATA* dirtyRegion) noexcept
+static HRESULT D3DAPI present(IDirect3DDevice9* device, const RECT* src, const RECT* dest, HWND windowOverride, const RGNDATA* dirtyRegion, UserCmd* cmd) noexcept
 {
     static const auto _ = ImGui_ImplDX9_Init(device);
 
@@ -70,6 +72,15 @@ static HRESULT D3DAPI present(IDirect3DDevice9* device, const RECT* src, const R
     Misc::drawNoscopeCrosshair(ImGui::GetBackgroundDrawList());
 
     //new
+    /*uintptr_t* framePointer;
+    __asm mov framePointer, ebp;
+    bool& sendPacket = *reinterpret_cast<bool*>(*framePointer - 0x1C);
+    static auto previousViewAngles{ cmd->viewangles };
+    const auto currentViewAngles{ cmd->viewangles };
+
+    AimA::AntiAim(cmd, previousViewAngles, currentViewAngles, sendPacket);*/
+
+
     Misc::bunny_hop();
     Misc::antiflash();
     Glow::render();

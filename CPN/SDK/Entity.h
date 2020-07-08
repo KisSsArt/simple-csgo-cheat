@@ -2,9 +2,15 @@
 
 #include <string>
 
+#include "AnimState.h"
 #include "Vector.h"
 #include "VirtualMethod.h"
 #include "WeaponInfo.h"
+
+#include <algorithm>
+#include <iostream>
+#include <iomanip>
+#include <random>
 
 struct ClientClass;
 class Matrix3x4;
@@ -66,6 +72,15 @@ public:
     VIRTUAL_METHOD(Entity*, getObserverTarget, 294, (), (this))
     VIRTUAL_METHOD(WeaponType, getWeaponType, 454, (), (this))
     VIRTUAL_METHOD(WeaponInfo*, getWeaponInfo, 460, (), (this))
+    VIRTUAL_METHOD(WeaponInfo*, getWeaponData, 460, (), (this))
+
+    /*auto getWeaponType() noexcept
+    {
+        const auto weaponData = getWeaponData();
+        if (weaponData)
+            return weaponData->type;
+        return WeaponType::Unknown;
+    }*/
 
     auto isSniperRifle() noexcept
     {
@@ -84,6 +99,47 @@ public:
         Vector vec;
         VirtualMethod::call<void, 345>(this, std::ref(vec));
         return vec;
+    }
+    
+    /*auto isPistol()
+    {
+        return getWeaponType() == WeaponType::Pistol;
+    }
+
+    auto getEyePosition()
+    {
+        Vector vec;
+        VirtualMethod::call<void, 284>(this, std::ref(vec));
+        return vec;
+    }
+
+    auto getUserId()
+    {
+        PlayerInfo playerInfo;
+        if (playerInfo; interfaces->engine->getPlayerInfo(index(), playerInfo))
+            return playerInfo.userId;
+
+        return -1;
+    }*/
+
+    AnimState* getAnimstate() noexcept
+    {
+        return *reinterpret_cast<AnimState**>(this + 0x3900);
+    }
+
+    float getMaxDesyncAngle() noexcept
+    {
+        const auto animState = getAnimstate();
+
+        if (!animState)
+            return 0.0f;
+
+        float yawModifier = (animState->stopToFullRunningFraction * -0.3f - 0.2f) * std::clamp(animState->footSpeed, 0.0f, 1.0f) + 1.0f;
+
+        if (animState->duckAmount > 0.0f)
+            yawModifier += (animState->duckAmount * std::clamp(animState->footSpeed2, 0.0f, 1.0f) * (0.5f - yawModifier));
+
+        return animState->velocitySubtractY * yawModifier;
     }
 
     bool canSee(Entity* other, const Vector& pos) noexcept;

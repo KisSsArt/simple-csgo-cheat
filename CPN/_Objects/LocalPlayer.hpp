@@ -44,6 +44,11 @@ public:
 		return MemoryOld::Read<int>(LocalPlayerPtr() + dwSetClanTag);
 	}
 
+	//weapon = *(dword*)(localplayer + ENTITY_ACTIVE_WEAPON); // m_hActive_Weapon
+	static int GetActiveWeapon() {
+		return MemoryOld::Read<int>(LocalPlayerPtr() + m_hActiveWeapon);
+	}
+
 	/*static int Attacker() {
 		return MemoryOld::Read<int>(LocalPlayerPtr() + );
 	}*/

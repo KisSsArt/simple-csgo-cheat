@@ -4,6 +4,11 @@
 #include <math.h>
 #include "../_Objects/Objects.hpp"
 #include "../Config/Config.h"
+#include "../SDK/WeaponId.h"
+#include "../SDK/WeaponInfo.h"
+#include "../GameData/GameData.h"
+
+#include <iostream>
 
 void Aim::triggerBot() noexcept
 {
@@ -17,9 +22,11 @@ void Aim::triggerBot() noexcept
     int entityTeam = MemoryOld::Read<int>(crosshairEntity + hazedumper::netvars::m_iTeamNum);
 
     int entityHP = MemoryOld::Read<int>(crosshairEntity + hazedumper::netvars::m_iHealth);
+   
 
     if (LocalPlayerOld::CrosshairID() != 0 && crosshairEntity != 0 && LocalPlayerOld::Team() != entityTeam && crosshairEntity > 0 && entityHP > 0)
     {
         Client::ForceAttack();
     }
 }
+

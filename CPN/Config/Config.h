@@ -70,7 +70,14 @@ public:
     int killmarker_time = 0;
     ColorToggleThickness killMarker;
     ColorToggleThickness hitMarker;
-
+    //
+    struct {
+        bool enabled{ false };
+        bool pitch{ false };
+        bool yaw{ false };
+        float pitchAngle{ 0.0f };
+    } antiAim;
+    //
 
     PurchaseList purchaseList;
     ObserverList observerList;

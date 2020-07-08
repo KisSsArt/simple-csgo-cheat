@@ -170,12 +170,16 @@ void T::drawAimbotTab() noexcept
         {
             if (ImGui::BeginMenuBar())
             {
-                ImGui::TextUnformatted("Aimbot");
+                ImGui::TextUnformatted("AntiAim");
                 ImGui::EndMenuBar();
             }
-
-
-
+            //
+            /*ImGui::Checkbox("Enabled", &config->antiAim.enabled);
+            ImGui::Checkbox("##pitch", &config->antiAim.pitch);
+            ImGui::SameLine();
+            ImGui::SliderFloat("Pitch", &config->antiAim.pitchAngle, -89.0f, 89.0f, "%.2f");
+            ImGui::Checkbox("Yaw", &config->antiAim.yaw);*/
+            //
 
 		}
         ImGui::EndChild();

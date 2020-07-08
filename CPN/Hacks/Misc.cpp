@@ -282,10 +282,10 @@ void Misc::bunny_hop() noexcept
     if (!config->bunnyhop || !interfaces->engine->isInGame()) {
         return;
     }
-
-    if (LocalPlayerOld::checkLocalVal())
+    
+    if (GetAsyncKeyState(VK_SPACE) && LocalPlayerOld::Flags() & (1 << 0))
     {
-        if (GetAsyncKeyState(VK_SPACE) && LocalPlayerOld::Flags() & (1 << 0))
+        if (LocalPlayerOld::checkLocalVal())
         {
             Client::ForceJump();
         }

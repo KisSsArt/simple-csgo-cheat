@@ -83,6 +83,12 @@
     <ClCompile Include="Hacks\Glow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Hacks\Antiaim.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\AnimState.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interfaces.h">
@@ -251,6 +257,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Hacks\Glow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hacks\Antiaim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\UserCmd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
