@@ -17,13 +17,13 @@ CPN is a CSGO Cheat that is written in C++. Based on [ImGui](https://github.com/
   - [X] Killsound
  
  #### Do not work after update:
-  - [x] Glow
-  - [x] Customization for glow
-  - [x] Bunny-Hop
-  - [x] Anti-Flash
-  - [x] TriggerBot
-  - [x] RadarHack
-  - [x] FOVChanger
+  - [ ] Glow
+  - [ ] Customization for glow
+  - [ ] Bunny-Hop
+  - [ ] Anti-Flash
+  - [ ] TriggerBot
+  - [ ] RadarHack
+  - [ ] FOVChanger
   
  #### Soon:
   - [ ] Personal injector
