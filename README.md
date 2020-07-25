@@ -1,5 +1,5 @@
-# CopyPastaNoob's
-CPN is a CSGO Cheat that is written in C++. Based on [ImGui](https://github.com/ocornut/imgui) + [GOESP](https://github.com/danielkrupinski/GOESP).
+
+simple-csgo-cheat is a CSGO Cheat that is written in C++. Based on [ImGui](https://github.com/ocornut/imgui) + [GOESP](https://github.com/danielkrupinski/GOESP).
   
   ## Contacts
   - [Discord channel link](https://discord.gg/vDexdDE) 
